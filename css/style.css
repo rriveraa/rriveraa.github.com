@@ -105,7 +105,7 @@ td { vertical-align: top; }
 
 
 body {
-	background: url('../img/richrd.jpg') no-repeat top left fixed;
+	background: url('../img/richrd.jpg') no-repeat top center fixed;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
