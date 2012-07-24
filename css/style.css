@@ -133,30 +133,25 @@ p {
 
 a, a:hover, a:visited, a:active {
 	text-decoration: none;
+	color: #1f2a2d;
 }
 
-.dribbble {
+.dribbble, .dribbble:visited {
 	color: #e95e73;
 }
 
-.babio {
+.babio, .babio:visited {
 	color: #1b9ace;
 }
 
-.alivianame {
+.alivianame, .alivianame:visited {
 	color: #f95c16;
 }
 
-.ooyala {
+.ooyala, .ooyala:visited {
 	color: #4d815d;
 }
 
 .email, .tweet {
-	color: #1f2a2d;
 	font-weight: bold;
 }
-
-
-
-
-
