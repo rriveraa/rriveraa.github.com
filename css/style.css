@@ -106,4 +106,57 @@ td { vertical-align: top; }
 
 body {
 	background: url('../img/richrd.jpg') no-repeat left center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	color: #1f2a2d;
 }
+
+div {
+	width: 570px;
+	margin: 50px 100px;
+	padding:0;
+}
+
+h1 {
+	font-size: 65px;
+	letter-spacing: -6px;
+	margin: 0 0 20px;
+}
+
+p {
+	font-size: 22px;
+	line-height: 34px;
+}
+
+a, a:hover, a:visited, a:active {
+	color: #1f2a2d;
+	text-decoration: none;
+}
+
+.dribbble {
+	color: #e95e73;
+}
+
+.babio {
+	color: #1b9ace;
+}
+
+.alivianame {
+	color: #f95c16;
+}
+
+.ooyala {
+	color: #4d815d;
+}
+
+.email, .tweet {
+	font-weight: bold;
+}
+
+
+
+
+
