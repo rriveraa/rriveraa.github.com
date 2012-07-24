@@ -102,20 +102,48 @@ td { vertical-align: top; }
   h2, h3 { page-break-after: avoid; }
   }
   
+html {
+	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
 
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: #1f2a2d;
-	height:100%;width:100%;
-	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
 	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	overflow:hidden;
+	-webkit-animation: body-fade-in 1.5s ease-in-out 0 1;
+	-moz-animation: body-fade-in 1.5s ease-in-out 0 1;
+	-o-animation: body-fade-in 1.5s ease-in-out 0 1;
+	animation: body-fade-in 1.5s ease-in-out 0 1;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+@keyframes body-fade-in {
+	from { background-color: #fff; }
+	to { background-color: transparent; }
+}
+
+@-webkit-keyframes body-fade-in {
+	from { background-color: #fff; }
+	to { background-color: transparent; }
+}
+
+@-moz-keyframes body-fade-in {
+	from { background-color: #fff; }
+	to { background-color: transparent; }
+}
+
+@-o-keyframes body-fade-in {
+	from { background-color: #fff; }
+	to { background-color: transparent; }
 }
 
 div {
+	-webkit-animation: body-fade-in 3s ease-in-out 0 1;
 	width: 480px;
 	margin: 50px 130px;
 	padding:0;
@@ -156,7 +184,6 @@ a, a:hover, a:visited, a:active {
 
 .dribbble:hover {
 	color: #ff397f;
-	text-shadow: 0 1px 3px #ffb8d1;
 }
 
 .babio, .babio:visited {
@@ -176,7 +203,6 @@ a, a:hover, a:visited, a:active {
 
 .babio:hover {
 	color: #00b4ff;
-	text-shadow: 0 1px 3px #99e1ff;
 	
 }
 
@@ -197,7 +223,6 @@ a, a:hover, a:visited, a:active {
 
 .alivianame:hover {
 	color: #ff6c00;
-	text-shadow: 0 1px 3px #ffb88d;
 	
 }
 
@@ -218,7 +243,6 @@ a, a:hover, a:visited, a:active {
 
 .ooyala:hover {
 	color: #3cb762;
-	text-shadow: 0 1px 3px #74de94;
 	
 }
 
@@ -239,7 +263,6 @@ a, a:hover, a:visited, a:active {
 
 .email:hover, .tweet:hover {
 	color: #414b4e;
-	text-shadow: 0 1px 3px #d6dadb;	
 }
 
 .name {
@@ -275,31 +298,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 @-webkit-keyframes fadeInUp {
 	0% {
 		opacity: 0;
-		-webkit-transform: translateY(20px);
 	}
 	
 	100% {
 		opacity: 1;
-		-webkit-transform: translateY(0);
 	}
 }
 
 @-moz-keyframes fadeInUp {
 	0% {
 		opacity: 0;
-		-moz-transform: translateY(20px);
 	}
 	
 	100% {
 		opacity: 1;
-		-moz-transform: translateY(0);
 	}
 }
 
 @-o-keyframes fadeInUp {
 	0% {
 		opacity: 0;
-		-o-transform: translateY(20px);
 	}
 	
 	100% {
@@ -316,7 +334,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 1;
-		transform: translateY(0);
 	}
 }
 
