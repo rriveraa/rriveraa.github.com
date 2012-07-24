@@ -105,7 +105,7 @@ td { vertical-align: top; }
 
 
 body {
-	background: url('../img/richrd.jpg') no-repeat left center fixed;
+	background: url('../img/richrd.jpg') no-repeat top left fixed;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -116,7 +116,7 @@ body {
 
 div {
 	width: 480px;
-	margin: 15px 110px;
+	margin: 50px 130px;
 	padding:0;
 }
 
@@ -155,5 +155,8 @@ a, a:hover, a:visited, a:active {
 }
 
 .email, .tweet {
+	font-weight: bold;
+}
+.name {
 	font-weight: bold;
 }
