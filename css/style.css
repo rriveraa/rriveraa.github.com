@@ -132,7 +132,6 @@ p {
 }
 
 a, a:hover, a:visited, a:active {
-	color: #1f2a2d;
 	text-decoration: none;
 }
 
@@ -153,6 +152,7 @@ a, a:hover, a:visited, a:active {
 }
 
 .email, .tweet {
+	color: #1f2a2d;
 	font-weight: bold;
 }
 
