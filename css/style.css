@@ -115,20 +115,20 @@ body {
 }
 
 div {
-	width: 570px;
+	width: 380px;
 	margin: 15px 110px;
 	padding:0;
 }
 
 h1 {
-	font-size: 65px;
-	letter-spacing: -6px;
+	font-size: 50px;
+	letter-spacing: -4px;
 	margin: 0 0 20px;
 }
 
 p {
-	font-size: 20px;
-	line-height: 34px;
+	font-size: 18px;
+	line-height: 28px;
 	letter-spacing: -1px;
 	text-shadow: 1px 1px rgba(255, 255, 255, 0.4);
 }
