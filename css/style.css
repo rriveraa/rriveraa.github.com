@@ -168,7 +168,7 @@ a, a:hover, a:visited, a:active {
 }
 
 .dribbble, .dribbble:visited {
-	color: #e95e73;
+	color: #f5548d;
 	-webkit-transition-property:color, text; 
 	-webkit-transition-duration: .4s, .4s; 
 	-webkit-transition-timing-function: linear, ease-in;
@@ -183,7 +183,7 @@ a, a:hover, a:visited, a:active {
 }
 
 .dribbble:hover {
-	color: #ff397f;
+	color: #f882d0;
 }
 
 .babio, .babio:visited {
@@ -202,12 +202,12 @@ a, a:hover, a:visited, a:active {
 }
 
 .babio:hover {
-	color: #00b4ff;
+	color: #03c5ff;
 	
 }
 
 .alivianame, .alivianame:visited {
-	color: #f95c16;
+	color: #ff5400;
 	-webkit-transition-property:color, text; 
 	-webkit-transition-duration: .4s, .4s; 
 	-webkit-transition-timing-function: linear, ease-in;
@@ -222,7 +222,7 @@ a, a:hover, a:visited, a:active {
 }
 
 .alivianame:hover {
-	color: #ff6c00;
+	color: #fe800a;
 	
 }
 
