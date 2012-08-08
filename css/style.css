@@ -72,9 +72,10 @@ td { vertical-align: top; }
 
 
 
-@media only screen and (min-width: 35em) {
-  
-
+@media only screen and (max-width: 767px) {
+  html { background: rgb(240,240,240) !important; }
+  div#main img { width: 100%; display: block !important; border: 2px solid white; box-shadow: 0 0 2px rgba(0,0,0,.3); border-radius: 2px; margin-bottom: 10px; }
+  div#main { margin: 5% 5%; width: 90%; }
 }
 
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
@@ -100,7 +101,7 @@ td { vertical-align: top; }
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
-  }
+}
   
 html {
 	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
@@ -268,6 +269,8 @@ a, a:hover, a:visited, a:active {
 .name {
 	font-weight: bold;
 }
+
+div#main img { display: none; }
 
 
 /*
