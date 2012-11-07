@@ -114,37 +114,62 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	color: #1f2a2d;
 	background-size: cover;
-	-webkit-animation: body-fade-in 1.5s ease-in-out 0 1;
-	-moz-animation: body-fade-in 1.5s ease-in-out 0 1;
-	-o-animation: body-fade-in 1.5s ease-in-out 0 1;
-	animation: body-fade-in 1.5s ease-in-out 0 1;
+	-webkit-animation: body-fade-in 1s ease-in-out 0 1;
+	-moz-animation: body-fade-in 1s ease-in-out 0 1;
+	-o-animation: body-fade-in 1s ease-in-out 0 1;
+	animation: body-fade-in 1s ease-in-out 0 1;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	}
 
 @keyframes body-fade-in {
-	from { background-color: #fff; }
-	to { background-color: transparent; }
+	from { 
+	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
+	filter:blur(10px);
 	}
+	to { 
+	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
+	filter:blur(0px);
+	}
+}
 
 @-webkit-keyframes body-fade-in {
-	from { background-color: #fff; }
-	to { background-color: transparent; }
+	from { 
+	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
+	-webkit-filter:blur(10px);
 	}
+	to { 
+	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
+	-webkit-filter:blur(0px);
+	}
+}
 
 @-moz-keyframes body-fade-in {
-	from { background-color: #fff; }
-	to { background-color: transparent; }
+	from { 
+	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
+	-moz-filter:blur(10px);
 	}
+	to { 
+	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
+	-moz-filter:blur(0px);
+	}
+}
 
 @-o-keyframes body-fade-in {
-	from { background-color: #fff; }
-	to { background-color: transparent; }
+	from { 
+	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
+	-o-filter:blur(10px);
 	}
+	to { 
+	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
+	-o-filter:blur(0px);
+	}
+}
+		
 
 div {
-	-webkit-animation: body-fade-in 3s ease-in-out 0 1;
+	-webkit-animation: body-fade-in 3s ease-in-out 0 0;
 	width: 460px;
 	margin: 50px 130px;
 	padding:0;
