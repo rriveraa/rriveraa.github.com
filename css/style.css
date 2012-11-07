@@ -290,6 +290,7 @@ a, a:hover, a:visited, a:active {
 	}
 
 .name {
+	color: #4875B4;
 	font-weight: 700;
 	-webkit-transition-property:color, text; 
 	-webkit-transition-duration: .4s, .4s; 
@@ -305,7 +306,7 @@ a, a:hover, a:visited, a:active {
 	}
 	
 .name:hover {
-	color: #61787f;
+	color: #558fe0;
 	}	
 
 div#main img { display: none; }
