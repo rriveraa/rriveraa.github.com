@@ -184,10 +184,6 @@ a, a:hover, a:visited, a:active {
 	color: #fff;
 	background: #f497a5;
     border-radius: 2px;
-    text-shadow: rgb(230, 78, 132) 1px 1px,
-        rgb(235, 80, 135) 2px 2px,
-        rgb(240, 82, 138) 3px 3px,
-        rgb(245, 84, 141) 4px 4px;
 	}
 
 
@@ -217,10 +213,6 @@ a, a:hover, a:visited, a:active {
 	color: #fff;
 	background: #67d3cf;
 	border-radius: 2px;
-	text-shadow: rgb(63, 144, 146) 1px 1px,
-	    rgb(64, 147, 149) 2px 2px,
-	    rgb(65, 150, 152) 3px 3px,
-	    rgb(67, 153, 155) 4px 4px;
 	}
 
 .ooyala, .ooyala:visited {
