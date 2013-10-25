@@ -183,7 +183,11 @@ a, a:hover, a:visited, a:active {
 .dribbble:hover {
 	color: #fff;
 	background: #f497a5;
-    border-radius: 1px;
+    border-radius: 2px;
+    text-shadow: rgb(230, 78, 132) 1px 1px,
+        rgb(235, 80, 135) 2px 2px,
+        rgb(240, 82, 138) 3px 3px,
+        rgb(245, 84, 141) 4px 4px;
 	}
 
 
@@ -195,6 +199,7 @@ a, a:hover, a:visited, a:active {
     text-transform: uppercase;
     letter-spacing: 2px;
 	color: #43999b;
+	
 	-webkit-transition-property:color, text; 
 	-webkit-transition-duration: .4s, .4s; 
 	-webkit-transition-timing-function: linear, ease-in;
@@ -211,7 +216,11 @@ a, a:hover, a:visited, a:active {
 .bienio:hover {
 	color: #fff;
 	background: #67d3cf;
-	border-radius: 1px;
+	border-radius: 2px;
+	text-shadow: rgb(63, 144, 146) 1px 1px,
+	    rgb(64, 147, 149) 2px 2px,
+	    rgb(65, 150, 152) 3px 3px,
+	    rgb(67, 153, 155) 4px 4px;
 	}
 
 .ooyala, .ooyala:visited {
@@ -237,8 +246,12 @@ a, a:hover, a:visited, a:active {
 
 .ooyala:hover {
 	color: #fff;
-	border-radius: 1px;
+	border-radius: 2px;
 	background: #25cee5;
+	text-shadow: rgb(0, 170, 194) 1px 1px,
+	    rgb(0, 174, 198) 2px 2px,
+	    rgb(0, 177, 202) 3px 3px,
+	    rgb(0, 181, 206) 4px 4px;
 	}
 
 .email, .tweet {
@@ -263,7 +276,7 @@ a, a:hover, a:visited, a:active {
 
 .email:hover, .tweet:hover {
     background: #6e8e8f;
-    border-radius: 1px;
+    border-radius: 2px;
 	color: #fff;
 	}
 
@@ -292,7 +305,11 @@ a, a:hover, a:visited, a:active {
 	color: #fff;
 	border: none;
 	background: #76abf5;
-	border-radius: 1px;
+	border-radius: 2px;
+	text-shadow: rgb(113, 135, 218) 1px 1px,
+	    rgb(116, 138, 223) 2px 2px,
+	    rgb(118, 141, 228) 3px 3px,
+	    rgb(121, 144, 233) 4px 4px;
 	}	
 
 div#main img { display: none; }
@@ -305,8 +322,8 @@ div#main img { display: none; }
 
 @media only screen and (max-width: 767px) {
   html { background: #394654 !important; }
-  div#main img { width: 100%; display: block !important; border: none; border-radius: 2px; margin-bottom: 10px; }
-  div#main { margin: 5% 5%; width: 90%; }
+  #main img { width: 100%; display: block !important; border: none; margin-bottom: 5px; }
+  div { margin:5% 5%; width: 100%; }
 }
 
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
