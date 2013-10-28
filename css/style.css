@@ -240,10 +240,6 @@ a, a:hover, a:visited, a:active {
 	color: #fff;
 	border-radius: 2px;
 	background: #25cee5;
-	text-shadow: rgb(0, 170, 194) 1px 1px,
-	    rgb(0, 174, 198) 2px 2px,
-	    rgb(0, 177, 202) 3px 3px,
-	    rgb(0, 181, 206) 4px 4px;
 	}
 
 .email, .tweet {
@@ -298,10 +294,6 @@ a, a:hover, a:visited, a:active {
 	border: none;
 	background: #76abf5;
 	border-radius: 2px;
-	text-shadow: rgb(113, 135, 218) 1px 1px,
-	    rgb(116, 138, 223) 2px 2px,
-	    rgb(118, 141, 228) 3px 3px,
-	    rgb(121, 144, 233) 4px 4px;
 	}	
 
 div#main img { display: none; }
