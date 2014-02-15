@@ -249,7 +249,7 @@ a, a:hover, a:visited, a:active {
 	padding: 4px 2px 4px 4px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	color: #00b5ce;
+	color: #00b5ce !important;
 	-webkit-transition-property:color, text; 
 	-webkit-transition-duration: .4s, .4s; 
 	-webkit-transition-timing-function: linear, ease-in;
