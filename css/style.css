@@ -94,44 +94,44 @@ body {
 @keyframes body-fade-in {
 	from { 
 	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
-	filter:grayscale(1) hue-rotate(180deg) blur(4px);
+	filter: hue-rotate(180deg) blur(3px);
 	}
 	to { 
 	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
-	filter:grayscale(0) hue-rotate(0) blur(0px);
+	filter: hue-rotate(0) blur(0px);
 	}
 }
 
 @-webkit-keyframes body-fade-in {
 	from { 
 	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
-	-webkit-filter:grayscale(1) hue-rotate(180deg) blur(4px);
+	-webkit-filter: hue-rotate(180deg) blur(3px);
 	}
 	to { 
 	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
-	-webkit-filter:grayscale(0) hue-rotate(0deg) blur(0px);
+	-webkit-filter: hue-rotate(0deg) blur(0px);
 	}
 }
 
 @-moz-keyframes body-fade-in {
 	from { 
 	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
-	-moz-filter:grayscale(1) hue-rotate(180deg) blur(4px);
+	-moz-filter: hue-rotate(180deg) blur(3px);
 	}
 	to { 
 	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
-	-moz-filter:grayscale(0) hue-rotate(0deg) blur(0px);
+	-moz-filter: hue-rotate(0deg) blur(0px);
 	}
 }
 
 @-o-keyframes body-fade-in {
 	from { 
 	background: #fff url('../img/richrd.jpg') no-repeat top center fixed;
-	-o-filter:grayscale(1) hue-rotate(180deg) blur(4px);
+	-o-filter: hue-rotate(180deg) blur(3px);
 	}
 	to { 
 	background: transparent url('../img/richrd.jpg') no-repeat top center fixed;
-	-o-filter:grayscale(0) hue-rotate(0deg) blur(0px);
+	-o-filter: hue-rotate(0deg) blur(0px);
 	}
 }
 		
