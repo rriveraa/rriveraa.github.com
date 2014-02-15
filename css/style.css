@@ -264,7 +264,7 @@ a, a:hover, a:visited, a:active {
 	}
 
 .email:hover, .tweet:hover {
-    color: #fff;
+    color: #fff !important;
     border-radius: 2px;
     background: #25cee5;
 	}
@@ -306,9 +306,12 @@ div#main img { display: none; }
 /* Media Queries */
 
 @media only screen and (max-width: 767px) {
-  html { background: #394654 !important; }
-  #main img { width: 100%; display: block !important; border: none; margin-bottom: 5px; }
-  div { margin:5% 5%; width: 100%; }
+  html { background: #394654 url('../img/richrd2014.jpg') no-repeat center fixed !important;}
+  #main img { width: 100%; display: block !important; border: 2px solid rgba(255, 255, 255, 0.5); margin: 0 auto !important; box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
+      -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
+  }
+  div { margin:5% 5%; width: 89%; }
+  h1 { margin: 20px 0px 10px 0; }
 }
 
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
