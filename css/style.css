@@ -83,10 +83,10 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-	-webkit-animation: body-fade-in 2.5s ease-out;
-	-moz-animation: body-fade-in 2.5s ease-out;
-	-o-animation: body-fade-in 2.5s ease-out;
-	animation: body-fade-in 2.5s ease-out;
+	-webkit-animation: body-fade-in 1.7s ease-in;
+	-moz-animation: body-fade-in 1.7s ease-in;
+	-o-animation: body-fade-in 1.7s ease-in;
+	animation: body-fade-in 1.7s ease-in;
 	width: 100%;
 	height: 100%;
 	position: absolute;
