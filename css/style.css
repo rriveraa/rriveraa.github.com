@@ -147,14 +147,16 @@ div {
 	}
 
 h1 {
-	font-size: 74px;
+	font-size: 72px;
 	font-weight: 100;
-	letter-spacing: -1px;
+	letter-spacing: 0px;
+	margin-bottom: 30px;
 	}
 
 p {
 	font-size: 18px;
 	line-height: 28px;
+	font-weight: 100;
 	}
 
 a, a:hover, a:visited, a:active {
