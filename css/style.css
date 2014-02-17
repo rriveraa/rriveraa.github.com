@@ -142,14 +142,14 @@ body {
 
 div {
 	width: 400px;
-	margin: 50px 130px;
+	margin: 90px 130px;
 	padding:0;
 	}
 
 h1 {
-	font-size: 60px;
+	font-size: 74px;
 	font-weight: 100;
-	letter-spacing: -2px;
+	letter-spacing: -1px;
 	}
 
 p {
@@ -334,11 +334,10 @@ div#main img { display: none; }
 
 @media only screen and (max-width: 767px) {
   html { background: #394654 url('../img/richrd2014.jpg') no-repeat center fixed !important;}
-  #main img { width: 100%; display: block !important; border: 2px solid rgba(255, 255, 255, 0.5); margin: 0 auto !important; box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
-      -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
+  #main img { width: 100%; display: block !important; border: 2px solid rgba(255, 255, 255, 0.5); margin: 0 auto !important; box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53); -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
   }
   div { margin:5% 5%; width: 89%; }
-  h1 { margin: 20px 0px 10px 0; }
+  h1 { margin: 20px 0px 10px 0; font-size: 60px; }
 }
 
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
