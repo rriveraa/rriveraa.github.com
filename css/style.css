@@ -333,7 +333,7 @@ div#main img { display: none; }
 /* Media Queries */
 
 @media only screen and (max-width: 767px) {
-  html { background: #394654 url('../img/richrd2014.jpg') no-repeat center fixed !important;}
+  html { background: #394654 url('../img/richrd2014.jpg') no-repeat center fixed !important; -webkit-font-smoothing: subpixel-antialiased; }
   #main img { width: 100%; display: block !important; border: 2px solid rgba(255, 255, 255, 0.5); margin: 0 auto !important; box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53); -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
   }
   div { margin:5% 5%; width: 89%; }
