@@ -73,7 +73,7 @@ html {
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
-	-o-background-size: cover;
+	-o-background-size: cover;	-webkit-font-smoothing: subpixel-antialiased;
 	}
 
 body {
@@ -147,12 +147,10 @@ div {
 	}
 
 h1 {
-	font-size: 72px;
+	font-size: 60px;
 	font-weight: 100;
-	letter-spacing: 0px;
-	margin-bottom: 30px;
-	}
-
+	letter-spacing: -1px;	margin: 0 0 20px 0;	line-height: 70px;
+	}h2 {	font-size: 13px;	text-transform: uppercase;	letter-spacing: 2px;	font-weight: 900;	margin-bottom: 50px;	color: rgba(255, 255, 255, 0.5);}		
 p {
 	font-size: 18px;
 	line-height: 28px;
