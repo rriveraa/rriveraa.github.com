@@ -159,8 +159,7 @@ p {
 
 a, a:hover, a:visited, a:active {
 	text-decoration: none;
-	color: #1f2a2d;
-	}
+	color: #1f2a2d;	}
 
 .dribbble, .dribbble:visited {
 	color: #f5548d;
@@ -169,8 +168,7 @@ a, a:hover, a:visited, a:active {
 	margin: 3px;
 	padding: 4px 2px 4px 4px;
 	text-transform: uppercase;
-	letter-spacing: 2px;
-	
+	letter-spacing: 2px;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
 	transition-timing-function: linear, ease-in;
@@ -191,7 +189,7 @@ a, a:hover, a:visited, a:active {
 .dribbble:hover {
 	color: #fff;
 	background: #f497a5;
-    border-radius: 2px;
+    border-radius: 2px;    border-bottom: none;
 	}
 
 
@@ -202,7 +200,7 @@ a, a:hover, a:visited, a:active {
     padding: 4px 2px 4px 4px;
     text-transform: uppercase;
     letter-spacing: 2px;
-	color: #43999b;
+	color: #43999b;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);	
 	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
@@ -224,7 +222,7 @@ a, a:hover, a:visited, a:active {
 .bienio:hover {
 	color: #fff;
 	background: #67d3cf;
-	border-radius: 2px;
+	border-radius: 2px;	border-bottom: none;
 	}
 
 .ooyala, .ooyala:visited {
@@ -266,7 +264,7 @@ a, a:hover, a:visited, a:active {
 	padding: 4px 2px 4px 4px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	color: #00b5ce !important;
+	color: #00b5ce !important;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
@@ -288,7 +286,7 @@ a, a:hover, a:visited, a:active {
 .email:hover, .tweet:hover {
     color: #fff !important;
     border-radius: 2px;
-    background: #25cee5;
+    background: #25cee5;    border-bottom: none;
 	}
 
 .name, .name:visited {
@@ -298,7 +296,7 @@ a, a:hover, a:visited, a:active {
     padding: 4px 2px 4px 4px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	color: #7990e9;
+	color: #7990e9;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
@@ -321,7 +319,7 @@ a, a:hover, a:visited, a:active {
 	color: #fff;
 	border: none;
 	background: #76abf5;
-	border-radius: 2px;
+	border-radius: 2px;	border-bottom: none;
 	}	
 
 div#main img { display: none; }
