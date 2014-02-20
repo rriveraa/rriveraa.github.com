@@ -98,7 +98,7 @@ body {
 @keyframes body-fade-in {
 	from { 
 	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
-	filter: blur(10px);
+	filter: blur(40px);
 	}
 	to { 
 	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
@@ -109,7 +109,7 @@ body {
 @-webkit-keyframes body-fade-in {
 	from { 
 	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
-	-webkit-filter: blur(10px);
+	-webkit-filter: blur(40px);
 	}
 	to { 
 	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
@@ -120,7 +120,7 @@ body {
 @-moz-keyframes body-fade-in {
 	from { 
 	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
-	-moz-filter: blur(10px);
+	-moz-filter: blur(40px);
 	}
 	to { 
 	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
@@ -131,7 +131,7 @@ body {
 @-o-keyframes body-fade-in {
 	from { 
 	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
-	-o-filter: blur(10px);
+	-o-filter: blur(40px);
 	}
 	to { 
 	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
