@@ -189,7 +189,7 @@ a, a:hover, a:visited, a:active {
 .dribbble:hover {
 	color: #fff;
 	background: #f497a5;
-    border-radius: 2px;    border-bottom: none;
+    border-radius: 2px;    border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}
 
 
@@ -222,7 +222,7 @@ a, a:hover, a:visited, a:active {
 .bienio:hover {
 	color: #fff;
 	background: #67d3cf;
-	border-radius: 2px;	border-bottom: none;
+	border-radius: 2px;	border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}
 
 .ooyala, .ooyala:visited {
@@ -286,7 +286,7 @@ a, a:hover, a:visited, a:active {
 .email:hover, .tweet:hover {
     color: #fff !important;
     border-radius: 2px;
-    background: #25cee5;    border-bottom: none;
+    background: #25cee5;    border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}
 
 .name, .name:visited {
@@ -319,7 +319,7 @@ a, a:hover, a:visited, a:active {
 	color: #fff;
 	border: none;
 	background: #76abf5;
-	border-radius: 2px;	border-bottom: none;
+	border-radius: 2px;	border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}	
 
 div#main img { display: none; }
