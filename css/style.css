@@ -69,7 +69,7 @@ td { vertical-align: top; }
 /* Styles */
   
 html {
-	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -97,44 +97,44 @@ body {
 
 @keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
 	filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
 	filter: blur(0px);
 	}
 }
 
 @-webkit-keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
 	-webkit-filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
 	-webkit-filter: blur(0px);
 	}
 }
 
 @-moz-keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
 	-moz-filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
 	-moz-filter: blur(0px);
 	}
 }
 
 @-o-keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
 	-o-filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd2014.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
 	-o-filter: blur(0px);
 	}
 }
@@ -331,7 +331,7 @@ div#main img { display: none; }
 /* Media Queries */
 
 @media only screen and (max-width: 767px) {
-  html { background: #394654 url('../img/richrd2014.jpg') no-repeat center fixed !important; -webkit-font-smoothing: subpixel-antialiased !important; }
+  html { background: #394654 url('../img/richrd20142.jpg') no-repeat center fixed !important; -webkit-font-smoothing: subpixel-antialiased !important; }
   #main img { width: 100%; display: block !important; border: 2px solid rgba(255, 255, 255, 0.5); margin: 0 auto !important; box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53); -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
   }
   div { margin:5% 5%; width: 89%; padding-bottom: 10%; }
