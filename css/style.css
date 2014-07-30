@@ -85,7 +85,7 @@ html {
 }	
 
 body {
-	font-family: 'Conv_BrandonText-Light', sans-serif;
+	font-family: 'Lato', sans-serif;
 	color: #fff;
 	background-size: cover;
     -webkit-background-size: cover;
@@ -156,8 +156,8 @@ div {
 }
 
 h1 {
-	font-family: 'Conv_BrandonText-Light', sans-serif;
 	font-size: 60px;
+	font-weight: 100;
 	letter-spacing: -1px;
 	margin: 0 0 20px 0;
 	line-height: 70px;
@@ -357,22 +357,6 @@ a, a:hover, a:visited, a:active {
 	}	
 
 div#main img { display: none; }
-
-@font-face {
-	font-family: 'Conv_BrandonText-Light';
-	src: url('fonts/BrandonText-Light.eot');
-	src: local('☺'), url('fonts/BrandonText-Light.woff') format('woff'), url('fonts/BrandonText-Light.ttf') format('truetype'), url('fonts/BrandonText-Light.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Conv_BrandonText-Bold';
-	src: url('fonts/BrandonText-Bold.eot');
-	src: local('☺'), url('fonts/BrandonText-Bold.woff') format('woff'), url('fonts/BrandonText-Bold.ttf') format('truetype'), url('fonts/BrandonText-Bold.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 
 
 
