@@ -95,10 +95,10 @@ body {
 	height: 100%;
 	position: absolute;
 
-	-webkit-animation: body-fade-in .6s ease-in;
-	-moz-animation: body-fade-in .6s ease-in;
-	-o-animation: body-fade-in .6s ease-in;
-	animation: body-fade-in .6s ease-in;
+	-webkit-animation: body-fade-in .8s ease-in;
+	-moz-animation: body-fade-in .8s ease-in;
+	-o-animation: body-fade-in .8s ease-in;
+	animation: body-fade-in .8s ease-in;
 }
 	
 
