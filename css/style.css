@@ -73,8 +73,16 @@ html {
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
-	-o-background-size: cover;	-webkit-font-smoothing: subpixel-antialiased;
+	-o-background-size: cover;
+	-webkit-font-smoothing: subpixel-antialiased;
 	}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}	
 
 body {
 	font-family: 'Lato', sans-serif;
@@ -83,74 +91,88 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
 	-webkit-animation: body-fade-in .6s ease-in;
 	-moz-animation: body-fade-in .6s ease-in;
 	-o-animation: body-fade-in .6s ease-in;
 	animation: body-fade-in .6s ease-in;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	}
-
+}
+	
 
 /* Animation Loading */
 
 @keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center contain;
 	filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center contain;
 	filter: blur(0px);
 	}
 }
 
 @-webkit-keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center contain;
 	-webkit-filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center contain;
 	-webkit-filter: blur(0px);
 	}
 }
 
 @-moz-keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center contain;
 	-moz-filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center contain;
 	-moz-filter: blur(0px);
 	}
 }
 
 @-o-keyframes body-fade-in {
 	from { 
-	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: #3b3b47 url('../img/richrd20142.jpg') no-repeat top center contain;
 	-o-filter: blur(40px);
 	}
 	to { 
-	background: transparent url('../img/richrd20142.jpg') no-repeat top center fixed;
+	background: transparent url('../img/richrd20142.jpg') no-repeat top center contain;
 	-o-filter: blur(0px);
 	}
 }
-		
+
 
 div {
 	width: 400px;
 	margin: 90px 130px;
 	padding:0;
-	}
+}
 
 h1 {
 	font-size: 60px;
 	font-weight: 100;
-	letter-spacing: -1px;	margin: 0 0 20px 0;	line-height: 70px;
-	}h2 {	font-size: 13px;	text-transform: uppercase;	letter-spacing: 2px;	font-weight: 900;	margin: 0 0 50px 5px;	color: rgba(255, 255, 255, 0.5);}		
+	letter-spacing: -1px;
+	margin: 0 0 20px 0;
+	line-height: 70px;
+}
+
+h2 {
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 900;
+	margin: 0 0 50px 5px;
+	color: rgba(255, 255, 255, 0.5);
+}	
+
+	
 p {
 	font-size: 18px;
 	line-height: 28px;
@@ -159,7 +181,8 @@ p {
 
 a, a:hover, a:visited, a:active {
 	text-decoration: none;
-	color: #1f2a2d;	}
+	color: #1f2a2d;
+	}
 
 .dribbble, .dribbble:visited {
 	color: #f5548d;
@@ -168,7 +191,9 @@ a, a:hover, a:visited, a:active {
 	margin: 3px;
 	padding: 4px 2px 4px 4px;
 	text-transform: uppercase;
-	letter-spacing: 2px;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);	
+	letter-spacing: 2px;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
 	transition-timing-function: linear, ease-in;
@@ -189,7 +214,8 @@ a, a:hover, a:visited, a:active {
 .dribbble:hover {
 	color: #fff;
 	background: #f497a5;
-    border-radius: 2px;    border-bottom: 1px dotted rgba(255, 255, 255, 0);
+    border-radius: 2px;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}
 
 
@@ -200,7 +226,9 @@ a, a:hover, a:visited, a:active {
     padding: 4px 2px 4px 4px;
     text-transform: uppercase;
     letter-spacing: 2px;
-	color: #43999b;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);	
+	color: #43999b;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+	
 	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
@@ -222,17 +250,19 @@ a, a:hover, a:visited, a:active {
 .bienio:hover {
 	color: #fff;
 	background: #67d3cf;
-	border-radius: 2px;	border-bottom: 1px dotted rgba(255, 255, 255, 0);
+	border-radius: 2px;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}
 
-.ooyala, .ooyala:visited {
+.wizeline, .wizeline:visited {
     font-size: 13px;
     font-weight: 900;
     margin: 3px;
     padding: 4px 2px 4px 4px;
     text-transform: uppercase;
     letter-spacing: 2px;
-	color: #00b5ce;
+	color: #ec5659;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
@@ -251,10 +281,10 @@ a, a:hover, a:visited, a:active {
 	-o-transition-timing-function: linear, ease-in;
 	}
 
-.ooyala:hover {
+.wizeline:hover {
 	color: #fff;
 	border-radius: 2px;
-	background: #25cee5;
+	background: #ff787b;
 	}
 
 .email, .tweet {
@@ -264,7 +294,8 @@ a, a:hover, a:visited, a:active {
 	padding: 4px 2px 4px 4px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	color: #00b5ce !important;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+	color: #00b5ce !important;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
@@ -286,7 +317,8 @@ a, a:hover, a:visited, a:active {
 .email:hover, .tweet:hover {
     color: #fff !important;
     border-radius: 2px;
-    background: #25cee5;    border-bottom: 1px dotted rgba(255, 255, 255, 0);
+    background: #25cee5;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}
 
 .name, .name:visited {
@@ -296,7 +328,8 @@ a, a:hover, a:visited, a:active {
     padding: 4px 2px 4px 4px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	color: #7990e9;	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+	color: #7990e9;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
 	transition-property:color, text; 
 	transition-duration: .4s, .4s; 
@@ -319,7 +352,8 @@ a, a:hover, a:visited, a:active {
 	color: #fff;
 	border: none;
 	background: #76abf5;
-	border-radius: 2px;	border-bottom: 1px dotted rgba(255, 255, 255, 0);
+	border-radius: 2px;
+	border-bottom: 1px dotted rgba(255, 255, 255, 0);
 	}	
 
 div#main img { display: none; }
@@ -335,7 +369,8 @@ div#main img { display: none; }
   #main img { width: 100%; display: block !important; border: 2px solid rgba(255, 255, 255, 0.5); margin: 0 auto !important; box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53); -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.53);
   }
   div { margin:5% 5%; width: 89%; padding-bottom: 10%; }
-  h1 { margin: 20px 0px 10px 0; font-size: 60px; }  p { font-size: 18px; line-height: 28px; font-weight: 300 !important; }
+  h1 { margin: 20px 0px 10px 0; font-size: 60px; }
+  p { font-size: 18px; line-height: 28px; font-weight: 300 !important; }
 }
 
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
