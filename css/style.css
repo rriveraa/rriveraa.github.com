@@ -194,21 +194,21 @@ a, a:hover, a:visited, a:active {
 	letter-spacing: 2px;
 	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
-	transition-property:color, text; 
-	transition-duration: .4s, .4s; 
-	transition-timing-function: linear, ease-in;
+	transition-property:color, text !important; 
+	transition-duration: .4s, .4s !important; 
+	transition-timing-function: linear, ease-in !important;
 	
-	-webkit-transition-property:color, text; 
-	-webkit-transition-duration: .4s, .4s; 
-	-webkit-transition-timing-function: linear, ease-in;
+	-webkit-transition-property:color, text !important; 
+	-webkit-transition-duration: .4s, .4s !important; 
+	-webkit-transition-timing-function: linear, ease-in !important;
 	
-	-moz-transition-property:color, text; 
-	-moz-transition-duration:.4s; 
-	-moz-transition-timing-function: linear, ease-in; 
+	-moz-transition-property:color, text !important; 
+	-moz-transition-duration:.4s !important; 
+	-moz-transition-timing-function: linear, ease-in !important; 
 	
-	-o-transition-property:color, text; 
-	-o-transition-duration:.4s; 
-	-o-transition-timing-function: linear, ease-in;
+	-o-transition-property:color, text !important; 
+	-o-transition-duration:.4s !important; 
+	-o-transition-timing-function: linear, ease-in !important;
 	}
 
 .dribbble:hover {
@@ -230,21 +230,21 @@ a, a:hover, a:visited, a:active {
 	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
 	
-	transition-property:color, text; 
-	transition-duration: .4s, .4s; 
-	transition-timing-function: linear, ease-in;
+	transition-property:color, text !important; 
+	transition-duration: .4s, .4s !important; 
+	transition-timing-function: linear, ease-in !important;
 	
-	-webkit-transition-property:color, text; 
-	-webkit-transition-duration: .4s, .4s; 
-	-webkit-transition-timing-function: linear, ease-in;
+	-webkit-transition-property:color, text !important; 
+	-webkit-transition-duration: .4s, .4s !important; 
+	-webkit-transition-timing-function: linear, ease-in !important;
 	
-	-moz-transition-property:color, text; 
-	-moz-transition-duration:.4s; 
-	-moz-transition-timing-function: linear, ease-in; 
+	-moz-transition-property:color, text !important; 
+	-moz-transition-duration:.4s !important; 
+	-moz-transition-timing-function: linear, ease-in !important; 
 	
-	-o-transition-property:color, text; 
-	-o-transition-duration:.4s; 
-	-o-transition-timing-function: linear, ease-in;
+	-o-transition-property:color, text !important; 
+	-o-transition-duration:.4s !important; 
+	-o-transition-timing-function: linear, ease-in !important;
 	}
 
 .bienio:hover {
@@ -264,21 +264,21 @@ a, a:hover, a:visited, a:active {
 	color: #ec5659;
 	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
-	transition-property:color, text; 
-	transition-duration: .4s, .4s; 
-	transition-timing-function: linear, ease-in;
+	transition-property:color, text !important; 
+	transition-duration: .4s, .4s !important; 
+	transition-timing-function: linear, ease-in !important;
 	
-	-webkit-transition-property:color, text; 
-	-webkit-transition-duration: .4s, .4s; 
-	-webkit-transition-timing-function: linear, ease-in;
+	-webkit-transition-property:color, text !important; 
+	-webkit-transition-duration: .4s, .4s !important; 
+	-webkit-transition-timing-function: linear, ease-in !important;
 	
-	-moz-transition-property:color, text; 
-	-moz-transition-duration:.4s; 
-	-moz-transition-timing-function: linear, ease-in; 
+	-moz-transition-property:color, text !important; 
+	-moz-transition-duration:.4s !important; 
+	-moz-transition-timing-function: linear, ease-in !important; 
 	
-	-o-transition-property:color, text; 
-	-o-transition-duration:.4s; 
-	-o-transition-timing-function: linear, ease-in;
+	-o-transition-property:color, text !important; 
+	-o-transition-duration:.4s !important; 
+	-o-transition-timing-function: linear, ease-in !important;
 	}
 
 .wizeline:hover {
@@ -297,21 +297,21 @@ a, a:hover, a:visited, a:active {
 	color: #00b5ce !important;
 	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
-	transition-property:color, text; 
-	transition-duration: .4s, .4s; 
-	transition-timing-function: linear, ease-in;
+	transition-property:color, text !important; 
+	transition-duration: .4s, .4s !important; 
+	transition-timing-function: linear, ease-in !important;
 	
-	-webkit-transition-property:color, text; 
-	-webkit-transition-duration: .4s, .4s; 
-	-webkit-transition-timing-function: linear, ease-in;
+	-webkit-transition-property:color, text !important; 
+	-webkit-transition-duration: .4s, .4s !important; 
+	-webkit-transition-timing-function: linear, ease-in !important;
 	
-	-moz-transition-property:color, text; 
-	-moz-transition-duration:.4s; 
-	-moz-transition-timing-function: linear, ease-in; 
+	-moz-transition-property:color, text !important; 
+	-moz-transition-duration:.4s !important; 
+	-moz-transition-timing-function: linear, ease-in !important; 
 	
-	-o-transition-property:color, text; 
-	-o-transition-duration:.4s; 
-	-o-transition-timing-function: linear, ease-in;
+	-o-transition-property:color, text !important; 
+	-o-transition-duration:.4s !important; 
+	-o-transition-timing-function: linear, ease-in !important;
 	}
 
 .email:hover, .tweet:hover {
@@ -331,21 +331,21 @@ a, a:hover, a:visited, a:active {
 	color: #7990e9;
 	border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 	
-	transition-property:color, text; 
-	transition-duration: .4s, .4s; 
-	transition-timing-function: linear, ease-in;
+	transition-property:color, text !important; 
+	transition-duration: .4s, .4s !important; 
+	transition-timing-function: linear, ease-in !important;
 	
-	-webkit-transition-property:color, text; 
-	-webkit-transition-duration: .4s, .4s; 
-	-webkit-transition-timing-function: linear, ease-in;
+	-webkit-transition-property:color, text !important; 
+	-webkit-transition-duration: .4s, .4s !important; 
+	-webkit-transition-timing-function: linear, ease-in !important;
 	
-	-moz-transition-property:color, text; 
-	-moz-transition-duration:.4s; 
-	-moz-transition-timing-function: linear, ease-in; 
+	-moz-transition-property:color, text !important; 
+	-moz-transition-duration:.4s !important; 
+	-moz-transition-timing-function: linear, ease-in !important; 
 	
-	-o-transition-property:color, text; 
-	-o-transition-duration:.4s; 
-	-o-transition-timing-function: linear, ease-in;
+	-o-transition-property:color, text !important; 
+	-o-transition-duration:.4s !important; 
+	-o-transition-timing-function: linear, ease-in !important;
 	}
 	
 .name:hover {
