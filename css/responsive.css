@@ -54,9 +54,9 @@
     margin: 0 20px 0;
   }
   .header h1 {
-    font-size: 1.9rem;
-    line-height: 2.9rem;
-    margin: 10rem 0 -8rem;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    margin: 13rem 0 -10rem;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -117,7 +117,6 @@
   .our-other-apps .apps-mock img {
     max-height: 450px;
   }
-  
 }
 /* Large Devices, Wide Screens */
 @media only screen and (min-width: 1200px) {
