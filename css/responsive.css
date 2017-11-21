@@ -30,6 +30,9 @@
   .container {
     margin: 0 20px 0;
   }
+  .header h1 {
+    margin: 10rem 0 -6rem;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -46,6 +49,14 @@
   }
   .easy-features-available .easy-caption h3 {
     text-align: center;
+  }
+  .container {
+    margin: 0 20px 0;
+  }
+  .header h1 {
+    font-size: 1.9rem;
+    line-height: 2.9rem;
+    margin: 10rem 0 -8rem;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -106,6 +117,7 @@
   .our-other-apps .apps-mock img {
     max-height: 450px;
   }
+  
 }
 /* Large Devices, Wide Screens */
 @media only screen and (min-width: 1200px) {
