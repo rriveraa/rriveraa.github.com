@@ -11,76 +11,12 @@
     width: 55px;
     height: auto;
   }
-  .subscribe-newsletter .fa {
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    -ms-border-radius: 35px;
-    -o-border-radius: 35px;
-    border-radius: 35px;
-    height: 70px;
-    width: 70px;
-    line-height: 80px;
-    font-size: 30px;
-  }
-  .subscribe-newsletter .input-group .form-control,
-  .subscribe-newsletter .input-group .btn {
-    height: 40px;
-    font-size: 14px;
-  }
-  .subscribe-newsletter .btn-main {
-    min-width: 100px;
-    padding: 8px;
-  }
-  .easy-features-available .easy-caption {
-    text-align: center;
-  }
-  .easy-features-available .each-easy-step {
-    margin-bottom: 20px;
-  }
-  .easy-features-available .each-easy-step h5.text-colored {
-    padding: 10px 0;
-  }
-  .easy-features-available .col-xs-1,
-  .easy-features-available .col-xs-11 {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .feature-area-4 {
-    text-align: center;
-  }
-  .feature-area-4 h3 {
-    margin-bottom: 30px;
-  }
-  .feature-area-4 .col-xs-2,
-  .feature-area-4 .col-xs-10 {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .feature-area-4 .margin-reduced {
-    margin-bottom: 1.5rem;
-  }
-  .testimonials #sync2 {
-    padding-left: 1.5rem;
-  }
-  .contact-us .each-item .col-xs-1 {
-    width: 15%;
-  }
-  .contact-us .each-item .col-xs-11 {
-    width: 85%;
-  }
-  .footer .social-icons ul li {
-    margin: 0 0.8rem;
-  }
-  .footer .social-icons ul li a {
-    font-size: 26px;
-  }
+
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 2.5rem;
   }
   h3 {
@@ -91,16 +27,11 @@
     width: 65px;
     height: auto;
   }
-}
-/* Few Mobile versions */
-@media only screen and (max-width: 576px) {
-  .sticky-navbar .main-navigation li a {
-    padding: 15px;
-  }
-  .our-other-apps .app-description {
-    text-align: center;
+  .container {
+    margin: 0 20px 0;
   }
 }
+
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
   .header .color-overlay {

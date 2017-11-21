@@ -5,7 +5,7 @@ $(document).ready(function() {
 /* PARALLAX */
 /***************************************************************************/
 $(window).stellar({
-    horizontalScrolling: false 
+    horizontalScrolling: false
 });
 
 
@@ -15,10 +15,10 @@ $(window).stellar({
 /***************************************************************************/
 $("html").niceScroll({
     mousescrollstep: 40,
-    cursorcolor: "#1abc9c",
+    cursorcolor: "#01FF89",
     zindex: 9999,
     cursorborder: "none",
-    cursorwidth: "6px",
+    cursorwidth: "5px",
     cursorborderradius: "none"
 });
 
@@ -48,7 +48,7 @@ $(".main-navigation .contact").click(function() {
     $('#section10').collapse('show');
 });
 
- 
+
 
 /***************************************************************************/
 /* SMOOTH SCROLL / CURRENTLY ENABLED IN niceScroll */
@@ -62,7 +62,7 @@ var scrollAnimationTime = 1200,
 $('a.scrollto').bind('click.smoothscroll', function (event) {
     event.preventDefault();
     var target = this.hash;
-    
+
     $('html, body').stop().animate({
         'scrollTop': $(target).offset().top
     }, scrollAnimationTime, scrollAnimation, function () {
@@ -79,7 +79,7 @@ $('a.scrollto').bind('click.smoothscroll', function (event) {
 /***************************************************************************/
 $(".mailchimp-subscribe").ajaxChimp({
     callback: mailchimpCallback,
-    url: "http://bdpark.us7.list-manage1.com/subscribe/post?u=d6649e6cfae99f3bc710a85a5&id=07db0b4bd6" // Replace your mailchimp post url inside double quote "".  
+    url: "http://bdpark.us7.list-manage1.com/subscribe/post?u=d6649e6cfae99f3bc710a85a5&id=07db0b4bd6" // Replace your mailchimp post url inside double quote "".
 });
 
 function mailchimpCallback(resp) {
@@ -90,15 +90,15 @@ function mailchimpCallback(resp) {
             .fadeIn(1000);
 
         $('.subscription-failed').fadeOut(500);
-        
+
     } else if(resp.result === 'error') {
         $('.subscription-failed')
             .html('<i class="icon_close_alt2"></i>' + resp.msg)
             .delay(500)
             .fadeIn(1000);
-            
+
         $('.subscription-success').fadeOut(500);
-    }  
+    }
 };
 
 
@@ -280,14 +280,14 @@ function center(number){
 /* OUR OTHER APPS */
 /***************************************************************************/
 $("#our-other-apps").owlCarousel({
- 
+
     navigation : false, // Show next and prev buttons
     slideSpeed : 300,
     paginationSpeed : 400,
     singleItem:true
 
 });
- 
+
 });
 
 
