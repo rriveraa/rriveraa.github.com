@@ -18,10 +18,10 @@ body {
   box-sizing: border-box;
 }
 h1 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-  font-size: 1.6rem;
-  line-height: 2.5rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 2.0rem;
+  line-height: 2.9rem;
 }
 h2 {
   font-family: 'Gentium Basic', serif;
@@ -35,7 +35,7 @@ p {
 }
 a {
   color: #241C29 !important;
-  font-weight: 100;
+  font-weight: 400;
   color: transparent;
   display: inline-block;
   overflow: hidden;
@@ -104,10 +104,23 @@ ul {
 }
 .header .logo img {
   width: 70px;
-  height: auto;
+  height: 100px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
+
+.header .logo a {
+  color: #241C29 !important;
+  font-weight: 400;
+  color: transparent;
+  display: inline;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+  text-shadow: 0 0 #241C29, 0.08em 0 0 #fff, 0 0, -0.08em 0 0 #fff;
+  vertical-align: bottom;
+}
+
 .header h1 {
   color: #241C29;
   margin: 6rem 0;
