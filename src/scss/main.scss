@@ -277,8 +277,8 @@ a:hover:after {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; // Stack logo and text vertically
+  align-items: flex-start; // Align items to the left
   box-sizing: border-box;
   width: 100%;
   
@@ -333,13 +333,15 @@ a:hover:after {
   font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 0.5px;
-  text-align: left; // Left-align to match bio text start position
+  text-align: left;
   max-width: 600px; // Match bio text max-width for alignment
-  margin-left: auto; // Align container to right, but text inside is left-aligned
-  margin-right: 148px; // Static offset to align with bio text vertical line
+  margin-top: 12px; // Add spacing between logo and text
+  margin-left: 0; // Remove auto margin since we're stacking vertically
+  margin-right: 0; // Remove right margin offset
   
   // Mobile: Remove margin offset and adjust
   @media only screen and (max-width: 768px) {
+    margin-top: 10px; // Smaller spacing on mobile
     margin-right: 0;
     max-width: 100%;
     word-wrap: break-word;
