@@ -357,9 +357,10 @@ a:hover:after {
     text-align: left; // Left align text on mobile
     position: absolute; // Absolute positioning to move closer to bio
     bottom: 160px; // Position above bio text (which is at bottom: 0)
-    left: 100px; // Align with left padding (accounting for marquee)
-    right: 10px; // Account for right padding
-    width: calc(100vw - 120px); // Account for left marquee space and padding
+    right: 10px; // Keep right positioning
+    left: 100px; // Start from left padding (accounting for marquee)
+    width: auto; // Let width be determined by content and constraints
+    max-width: calc(100vw - 120px); // Account for left marquee space and padding
   }
 }
 
