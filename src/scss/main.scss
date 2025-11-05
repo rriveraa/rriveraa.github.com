@@ -334,7 +334,7 @@ a:hover:after {
   font-size: 14px;
   font-weight: 700;
   color: var(--color-primary);
-  letter-spacing: 0.5px;
+  letter-spacing: 0px;
   text-align: left; // Left-align to match bio text start position
   max-width: 600px; // Match bio text max-width for alignment
   margin-left: auto; // Desktop: Align container to right, but text inside is left-aligned
@@ -343,7 +343,7 @@ a:hover:after {
   
   // Mobile: Stack below logo and adjust margins
   @media only screen and (max-width: 768px) {
-    margin-top: 10px; // Add spacing between logo and text on mobile
+    margin-top: 12px; // Add spacing between logo and text on mobile
     margin-left: 0; // Remove auto margin since we're stacking vertically
     margin-right: 0; // Remove right margin offset
     max-width: 100%;
@@ -640,7 +640,7 @@ a:hover:after {
 /***************************************************************************/
 @media only screen and (max-width: 768px) {
   .top-header {
-    padding: 30px 20px;
+    padding: 16px 20px;
     padding-left: 96px; // Space for vertical marquee on left
 
     
@@ -654,13 +654,13 @@ a:hover:after {
   }
   
   .header-role {
-    font-size: 14px;
+    font-size: 16px;
   }
   
   .main-content {
     padding-left: 100px; // Space for vertical marquee on left
     padding-right: 10px; // Small right padding
-    padding-top: 40px;
+    padding-top: 16px;
     padding-bottom: 40px;
     max-width: 100vw; // Full viewport
     overflow-x: hidden; // Prevent horizontal scroll
@@ -687,6 +687,15 @@ a:hover:after {
       word-break: normal;
       overflow-wrap: normal;
       display: inline;
+    }
+    
+    // Mobile: Underline links
+    a.cursor-highlight {
+      text-decoration: underline;
+      text-decoration-style: solid;
+      text-decoration-color: var(--color-primary);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
     }
   }
   
