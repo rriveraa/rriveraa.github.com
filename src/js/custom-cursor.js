@@ -15,15 +15,35 @@ export class CustomCursor {
   }
   
   init() {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.setup());
+    } else {
+      this.setup();
+    }
+  }
+  
+  setup() {
     // Create cursor elements
     this.createCursor();
     
     // Hide default cursor
     document.body.style.cursor = 'none';
     
+    // Initialize mouse position
+    this.mouse.x = window.innerWidth / 2;
+    this.mouse.y = window.innerHeight / 2;
+    this.follower.x = this.mouse.x;
+    this.follower.y = this.mouse.y;
+    
+    // Set initial position
+    this.cursor.style.left = `${this.mouse.x}px`;
+    this.cursor.style.top = `${this.mouse.y}px`;
+    this.cursorFollower.style.left = `${this.follower.x}px`;
+    this.cursorFollower.style.top = `${this.follower.y}px`;
+    
     // Event listeners
     document.addEventListener('mousemove', this.onMouseMove.bind(this));
-    // Cursor is visible by default, no need to toggle on mouseenter/leave
     
     // Handle text highlights
     this.initTextHighlights();
