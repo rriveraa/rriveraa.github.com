@@ -144,8 +144,8 @@ export class CustomCursor {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
       pointer-events: none;
       z-index: 100000;
     `;
