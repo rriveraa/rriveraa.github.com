@@ -335,7 +335,12 @@ a:hover:after {
   align-items: center;
   flex-shrink: 0;
   padding: 0 60px;
-  gap: 40px;
+  gap: 0; // Remove gap, we'll use fixed spacing
+  
+  // Ensure equal spacing on both sides of photo
+  .marquee-photo {
+    margin: 0 120px; // Equal spacing on both sides (120px each side)
+  }
 }
 
 .marquee-photo {
