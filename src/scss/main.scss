@@ -68,6 +68,7 @@ body {
   text-align: left;
   margin: 0;
   color: var(--color-text);
+  background: var(--color-bg); // Explicit white background
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -85,6 +86,7 @@ body {
     overflow-x: hidden;
     width: 100vw;
     max-width: 100vw;
+    background: var(--color-bg); // Explicit white background on mobile
   }
 }
 
@@ -505,7 +507,7 @@ a:hover:after {
     right: auto;
     width: 80px;
     height: 100vh;
-    background: transparent;
+    background: var(--color-bg); // White background on mobile (not transparent)
     max-width: 80px; // Prevent overflow
     box-sizing: border-box;
   }
