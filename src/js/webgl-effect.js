@@ -70,15 +70,16 @@ export class WebGLHoverEffect {
           
           // Convert UV to position space for distance calculation
           vec2 uvPos = uv * 2.0 - 1.0;
-          vec2 mousePos = uMouse * 2.0 - 1.0;
+          vec2 mousePos = uMouse * 1.0 - 1.0;
           float dist = distance(uvPos, mousePos);
           
           // Calculate distance from center (for edge emphasis)
           float distFromCenter = length(uvPos);
-          float edgeFactor = smoothstep(0.3, 1.0, distFromCenter); // Stronger near edges
+          // Make edge factor more aggressive - starts later, stronger at edges
+          float edgeFactor = smoothstep(0.5, 0.95, distFromCenter); // Stronger near edges only
           
-          // Reduce influence in center, keep it strong at edges
-          float influence = (1.0 - dist) * uIntensity * (0.3 + 0.7 * edgeFactor);
+          // Reduce influence in center significantly, maximize at edges
+          float influence = (1.0 - dist) * uIntensity * (0.2 + 1.8 * edgeFactor);
           
           // Displace vertices based on mouse velocity (distorts the actual shape including edges)
           vec2 displacement = uMouseVelocity * influence * 0.2;
