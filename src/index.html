@@ -19,6 +19,29 @@
     
     <!-- Emoji CSS -->
     <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+    
+    <!-- Critical CSS - Prevent FOUC -->
+    <style>
+        /* Hide content until styles load */
+        body:not(.styles-loaded) {
+            visibility: hidden;
+        }
+        
+        /* Basic layout to prevent layout shift */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #241C29;
+        }
+        
+        /* Hide preloader initially */
+        .spinner-wrapper {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader -->
