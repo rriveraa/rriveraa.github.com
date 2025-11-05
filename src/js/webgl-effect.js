@@ -76,9 +76,10 @@ export class WebGLHoverEffect {
           
           // Get texture 3 times, each time with a different offset, depending on mouse velocity
           // This creates the chromatic aberration / colorful edge effect
-          float r = texture2D(uTexture, uv + uMouseVelocity * 0.5).r;
-          float g = texture2D(uTexture, uv + uMouseVelocity * 0.525).g;
-          float b = texture2D(uTexture, uv + uMouseVelocity * 0.55).b;
+          // Increased multipliers for more visible distortion at edges
+          float r = texture2D(uTexture, uv + uMouseVelocity * 1.0).r;
+          float g = texture2D(uTexture, uv + uMouseVelocity * 1.05).g;
+          float b = texture2D(uTexture, uv + uMouseVelocity * 1.1).b;
           
           // Get original alpha
           float a = texture2D(uTexture, uv).a;
@@ -126,10 +127,10 @@ export class WebGLHoverEffect {
       const y = 1.0 - (e.clientY - rect.top) / rect.height; // Flip Y
       this.targetMouse.set(x, y);
       
-      // Calculate mouse velocity for trailing effect
+      // Calculate mouse velocity for trailing effect (increased for more visible distortion)
       this.mouseVelocity.set(
-        (x - this.prevMouse.x) * 10.0,
-        (y - this.prevMouse.y) * 10.0
+        (x - this.prevMouse.x) * 20.0,
+        (y - this.prevMouse.y) * 20.0
       );
       this.prevMouse.set(x, y);
     });
