@@ -114,9 +114,9 @@ export class WebGLHoverEffect {
           // This creates the chromatic aberration / colorful edge effect
           // Increased multipliers for more visible distortion at edges
           vec2 aberrationOffset = uMouseVelocity * 1.2; // Slightly stronger for more color separation
-          float r = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(1.01, 0.0)).r;
-          float g = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(0.05, 0.0)).g;
-          float b = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(3.03, 0.0)).b;
+          float r = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(0.01, 0.0)).r;
+          float g = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(0.25, 0.0)).g;
+          float b = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(0.05, 0.0)).b;
           
           // Get original alpha from zoomed UV
           float a = texture2D(uTexture, zoomedUv).a;

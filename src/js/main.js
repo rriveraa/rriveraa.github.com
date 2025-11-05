@@ -2,6 +2,7 @@
 /* MODERN JAVASCRIPT - No jQuery! */
 /***************************************************************************/
 import { WebGLHoverEffect } from './webgl-effect.js';
+import { CustomCursor } from './custom-cursor.js';
 import * as THREE from 'three';
 
 // Wait for DOM to be ready
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initFullscreenHeader();
   initMarqueeLoop();
+  initCustomCursor();
   initWebGLEffects();
 });
 
@@ -121,6 +123,17 @@ function initMarqueeLoop() {
   
   // Start animation
   animate();
+}
+
+/***************************************************************************/
+/* CUSTOM CURSOR */
+/***************************************************************************/
+function initCustomCursor() {
+  // Only initialize on desktop (not mobile)
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const cursor = new CustomCursor();
+    window._customCursor = cursor; // Store for cleanup if needed
+  }
 }
 
 /***************************************************************************/
