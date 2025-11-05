@@ -5,14 +5,26 @@ import { WebGLHoverEffect } from './webgl-effect.js';
 import { CustomCursor } from './custom-cursor.js';
 import * as THREE from 'three';
 
-// Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', () => {
+// Mark styles as loaded to prevent FOUC
+// This will be called after CSS is imported
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('styles-loaded');
+    initPreloader();
+    initFullscreenHeader();
+    initMarqueeLoop();
+    initCustomCursor();
+    initWebGLEffects();
+  });
+} else {
+  // DOM already loaded
+  document.body.classList.add('styles-loaded');
   initPreloader();
   initFullscreenHeader();
   initMarqueeLoop();
   initCustomCursor();
   initWebGLEffects();
-});
+}
 
 /***************************************************************************/
 /* PRELOADER */
