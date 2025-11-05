@@ -8,6 +8,7 @@ import * as THREE from 'three';
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initFullscreenHeader();
+  initMarqueeLoop();
   initWebGLEffects();
 });
 
@@ -66,6 +67,24 @@ function initFullscreenHeader() {
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(setFullscreenHeight, 100);
+  });
+}
+
+/***************************************************************************/
+/* MARQUEE SEAMLESS LOOP */
+/***************************************************************************/
+function initMarqueeLoop() {
+  const marquee = document.querySelector('.marquee');
+  if (!marquee) return;
+  
+  // Listen for animation iteration to reset position seamlessly
+  marquee.addEventListener('animationiteration', () => {
+    // Reset transform to 0 without visible jump
+    // Since we have 3 duplicates, when animation completes at -33.333%,
+    // the next duplicate is already in position, so we can reset to 0
+    requestAnimationFrame(() => {
+      marquee.style.transform = 'translateX(0)';
+    });
   });
 }
 
