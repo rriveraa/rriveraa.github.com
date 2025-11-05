@@ -81,27 +81,6 @@ export class WebGLHoverEffect {
           gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
         }
       `,
-        
-        void main() {
-          vUv = uv;
-          
-          // Convert UV to position space (-1 to 1)
-          vec2 pos = uv * 2.0 - 1.0;
-          
-          // Calculate distance from mouse
-          vec2 mousePos = uMouse * 2.0 - 1.0;
-          float dist = distance(pos, mousePos);
-          float influence = (1.0 - dist) * uIntensity;
-          
-          // Displace vertices based on mouse velocity and position
-          vec2 displacement = uMouseVelocity * influence * 0.3;
-          pos += displacement;
-          
-          // Convert back to standard position
-          vec4 newPosition = vec4(pos, 0.0, 1.0);
-          gl_Position = projectionMatrix * modelViewMatrix * newPosition;
-        }
-      `,
       fragmentShader: `
         uniform sampler2D uTexture;
         uniform vec2 uMouse;
