@@ -277,13 +277,15 @@ a:hover:after {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: column; // Stack logo and text vertically
-  align-items: flex-start; // Align items to the left
+  justify-content: space-between; // Desktop: side-by-side layout
+  align-items: center;
   box-sizing: border-box;
   width: 100%;
   
-  // Mobile: Prevent overflow
+  // Mobile: Stack logo and text vertically
   @media only screen and (max-width: 768px) {
+    flex-direction: column; // Stack vertically on mobile
+    align-items: flex-start; // Align items to the left
     padding: 0;
     max-width: 100%;
     width: 100%;
@@ -333,16 +335,17 @@ a:hover:after {
   font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 0.5px;
-  text-align: left;
+  text-align: left; // Left-align to match bio text start position
   max-width: 600px; // Match bio text max-width for alignment
-  margin-top: 12px; // Add spacing between logo and text
-  margin-left: 0; // Remove auto margin since we're stacking vertically
-  margin-right: 0; // Remove right margin offset
+  margin-left: auto; // Desktop: Align container to right, but text inside is left-aligned
+  margin-right: 148px; // Desktop: Static offset to align with bio text vertical line
+  margin-top: 0; // Desktop: No top margin
   
-  // Mobile: Remove margin offset and adjust
+  // Mobile: Stack below logo and adjust margins
   @media only screen and (max-width: 768px) {
-    margin-top: 10px; // Smaller spacing on mobile
-    margin-right: 0;
+    margin-top: 10px; // Add spacing between logo and text on mobile
+    margin-left: 0; // Remove auto margin since we're stacking vertically
+    margin-right: 0; // Remove right margin offset
     max-width: 100%;
     word-wrap: break-word;
   }
