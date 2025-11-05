@@ -215,149 +215,237 @@ a:hover:after {
 }
 
 /***************************************************************************/
-/* HEADER SECTION */
+/* MAIN CONTENT SECTION */
 /***************************************************************************/
-.header {
-  background: var(--color-bg);
+.main-content {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
-.color-overlay {
-  width: 100%;
-  padding: var(--spacing-lg) 0;
+  background: var(--color-bg);
+  position: relative;
+  padding: 60px 20px;
+  padding-bottom: 200px; // Space for marquee
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-.header-container {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
 }
 
-.content {
-  width: 100%;
-  text-align: center;
-}
-
+// Logo (Top Left)
 .logo {
-  margin-bottom: var(--spacing-md);
+  position: absolute;
+  top: 0;
+  left: 0;
   
-  img {
-    width: 70px;
-    height: 100px;
-    display: block;
-    margin: 0 auto;
+  .logo-symbol {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    font-family: var(--font-primary);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   a {
-    display: inline-block;
+    text-decoration: none;
+    color: inherit;
     
-    &:hover {
+    &:hover .logo-symbol {
       opacity: 0.8;
     }
   }
 }
 
-.header h1 {
+// Role Text (Top Right)
+.role-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
   color: var(--color-primary);
-  margin: var(--spacing-lg) 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  letter-spacing: 0.5px;
 }
 
-.header h2 {
-  font-weight: 400;
-  font-style: italic;
+// Bio Text (Middle Right)
+.bio-text {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  max-width: 400px;
+  text-align: right;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--color-primary);
   
-  i {
-    margin-right: 0.6rem;
+  strong {
+    font-weight: 700;
   }
+}
+
+/***************************************************************************/
+/* MARQUEE SECTION */
+/***************************************************************************/
+.marquee-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: var(--color-bg);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.marquee {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  animation: marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0 60px;
+  gap: 40px;
+}
+
+.marquee-photo {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-primary);
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  // Fallback if image doesn't load
+  &:has(img[src=""])::before,
+  img:not([src]) {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.marquee-name {
+  font-family: var(--font-primary);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+  letter-spacing: 4px;
+  line-height: 1;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+// Pause on hover for better UX
+.marquee-wrapper:hover .marquee {
+  animation-play-state: paused;
 }
 
 /***************************************************************************/
 /* RESPONSIVE DESIGN */
 /***************************************************************************/
-@media only screen and (max-width: 360px) {
-  html, body {
-    font-size: 90%;
+@media only screen and (max-width: 768px) {
+  .main-content {
+    padding: 40px 20px;
+    padding-bottom: 150px;
   }
   
-  .header .logo img {
-    width: 55px;
-    height: auto;
+  .logo {
+    .logo-symbol {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      line-height: 50px;
+    }
+  }
+  
+  .role-text {
+    font-size: 12px;
+    top: 60px;
+  }
+  
+  .bio-text {
+    max-width: 100%;
+    text-align: left;
+    position: static;
+    transform: none;
+    margin-top: 100px;
+    font-size: 14px;
+  }
+  
+  .marquee-wrapper {
+    height: 100px;
+  }
+  
+  .marquee-content {
+    padding: 0 40px;
+    gap: 30px;
+  }
+  
+  .marquee-photo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .marquee-name {
+    font-size: 48px;
+    letter-spacing: 2px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  h1 {
-    font-size: 1.6rem;
-    line-height: 2.5rem;
+  .marquee-name {
+    font-size: 36px;
+    letter-spacing: 1px;
   }
   
-  .header .logo img {
-    width: 65px;
-    height: auto;
+  .marquee-photo {
+    width: 50px;
+    height: 50px;
   }
   
-  .container {
-    margin: 0 20px;
-  }
-  
-  .header h1 {
-    margin: 10rem 0 -6rem;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .header .color-overlay {
-    padding: 8rem 0;
-  }
-  
-  .container {
-    margin: 0 20px;
-  }
-  
-  .header h1 {
-    font-size: 1.8rem;
-    line-height: 3rem;
-    margin: 13rem 0 -10rem;
-  }
-}
-
-@media only screen and (min-width: 481px) and (max-width: 992px) {
-  h1 {
-    font-size: 2.2rem;
-    line-height: 2.8rem;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .header .color-overlay {
-    min-height: inherit;
-  }
-  
-  .header .header-container {
-    min-height: inherit;
-    position: relative;
-  }
-  
-  .header .header-container .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: -210px;
+  .bio-text {
+    font-size: 13px;
   }
 }
 

@@ -31,36 +31,62 @@
         <div class="loader" aria-hidden="true">Loading...</div>
     </div>
 
-    <!-- Header Section -->
-    <header class="header" id="home">
-        <div class="color-overlay">
-            <div class="container header-container">
-                <div class="content">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="https://folio.richrd.com" target="_blank" rel="noopener noreferrer" aria-label="Visit portfolio">
-                            <img src="/images/richrd.svg" alt="Ricardo Rivera Logo" width="100" height="100">
-                        </a>
-                    </div>
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Top Right: Role -->
+            <div class="role-text">
+                Designer. Product UX & Visual Design Leader
+            </div>
 
-                    <!-- Main Content -->
-                    <h1>
-                        I'm Ricardo Rivera — a designer, builder, and curious mind originally from 
-                        <a href="https://www.theguardian.com/travel/2017/nov/11/guadalajara-city-guide-what-to-do-best-hotels-restaurants-bars" target="_blank" rel="noopener noreferrer">Guadalajara, Mexico</a>.
-                    </h1>
-                    <h1>
-                        I lead design as a Principal Product Designer at 
-                        <a href="https://www.linkedin.com/in/richrd/" target="_blank" rel="noopener noreferrer">LinkedIn</a> 
-                        in Mountain View, California, crafting AI-powered systems and experiences that help people grow their careers through thoughtful, human-centered design.
-                    </h1>
-                    <h2>
-                        <i class="em em-envelope" aria-hidden="true"></i>
-                        hello at richrd dot com
-                    </h2>
+            <!-- Middle Right: Bio -->
+            <div class="bio-text">
+                <strong>STRATEGIC</strong> Product Designer specializing in UX and visual design.<br>
+                I craft engaging, scalable experiences that empower users and elevate digital products.
+            </div>
+
+            <!-- Top Left: Logo -->
+            <div class="logo">
+                <a href="https://folio.richrd.com" target="_blank" rel="noopener noreferrer" aria-label="Visit portfolio">
+                    <span class="logo-symbol">R®</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Marquee Section -->
+    <div class="marquee-wrapper">
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-content">
+                <!-- Photo -->
+                <div class="marquee-photo">
+                    <img src="/images/profile-photo.jpg" alt="Ricardo Rivera" id="profile-photo">
+                </div>
+                <!-- Name -->
+                <div class="marquee-name">
+                    RICARDO RIVERA
+                </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee-content">
+                <div class="marquee-photo">
+                    <img src="/images/profile-photo.jpg" alt="Ricardo Rivera">
+                </div>
+                <div class="marquee-name">
+                    RICARDO RIVERA
+                </div>
+            </div>
+            <!-- Third duplicate for smoother animation -->
+            <div class="marquee-content">
+                <div class="marquee-photo">
+                    <img src="/images/profile-photo.jpg" alt="Ricardo Rivera">
+                </div>
+                <div class="marquee-name">
+                    RICARDO RIVERA
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
     <!-- Main Script -->
     <script type="module" src="./main.js"></script>
