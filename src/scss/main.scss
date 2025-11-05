@@ -352,11 +352,12 @@ a:hover:after {
   
   // Mobile: Reduce padding to prevent overflow
   @media only screen and (max-width: 768px) {
-    padding: 0 10px; // Reduced padding for mobile
+    padding: 0; // No padding to prevent overflow
     max-width: calc(100vw - 100px); // Account for marquee width
     width: calc(100vw - 100px); // Explicit width calculation
     margin-left: 0; // Remove auto margin
     box-sizing: border-box;
+    overflow-x: hidden; // Prevent any overflow
   }
 }
 
@@ -374,11 +375,22 @@ a:hover:after {
   overflow-wrap: break-word;
   box-sizing: border-box;
   
-  // Mobile: Full width, no auto margin
+  // Mobile: Full width, no auto margin, prevent overflow
   @media only screen and (max-width: 768px) {
     max-width: 100%;
     width: 100%;
     margin-left: 0;
+    padding: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    
+    // Ensure links wrap
+    a {
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      display: inline;
+    }
   }
   
   strong {
@@ -612,8 +624,19 @@ a:hover:after {
     font-size: 14px;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    word-break: break-word;
     width: 100%;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+    // Ensure links wrap properly
+    a {
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      display: inline;
+      max-width: 100%;
+    }
   }
   
   // Vertical marquee styles already defined above
