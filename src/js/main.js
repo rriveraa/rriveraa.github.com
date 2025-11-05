@@ -116,8 +116,8 @@ function initMarqueeLoop() {
 function initWebGLEffects() {
   // Wait for images to load
   window.addEventListener('load', () => {
+    // Initialize WebGL effect on marquee photos
     const photoImages = document.querySelectorAll('.marquee-photo img');
-    
     photoImages.forEach((img) => {
       // Only initialize if image has loaded
       if (img.complete && img.naturalHeight !== 0) {
@@ -128,6 +128,18 @@ function initWebGLEffects() {
         });
       }
     });
+    
+    // Initialize WebGL effect on header logo
+    const logoImage = document.querySelector('.header-logo .logo-symbol');
+    if (logoImage && logoImage.tagName === 'IMG') {
+      if (logoImage.complete && logoImage.naturalHeight !== 0) {
+        initWebGLEffect(logoImage);
+      } else {
+        logoImage.addEventListener('load', () => {
+          initWebGLEffect(logoImage);
+        });
+      }
+    }
   });
 }
 
