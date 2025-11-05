@@ -71,21 +71,43 @@ function initFullscreenHeader() {
 }
 
 /***************************************************************************/
-/* MARQUEE SEAMLESS LOOP */
+/* MARQUEE SEAMLESS LOOP - JavaScript-based for true infinite scroll */
 /***************************************************************************/
 function initMarqueeLoop() {
   const marquee = document.querySelector('.marquee');
   if (!marquee) return;
   
-  // Listen for animation iteration to reset position seamlessly
-  marquee.addEventListener('animationiteration', () => {
-    // Reset transform to 0 without visible jump
-    // Since we have 3 duplicates, when animation completes at -33.333%,
-    // the next duplicate is already in position, so we can reset to 0
-    requestAnimationFrame(() => {
-      marquee.style.transform = 'translateX(0)';
-    });
-  });
+  // Remove CSS animation
+  marquee.style.animation = 'none';
+  
+  // Get the width of one content block
+  const firstContent = marquee.querySelector('.marquee-content');
+  if (!firstContent) return;
+  
+  const contentWidth = firstContent.offsetWidth;
+  const speed = 0.5; // pixels per frame (adjust for speed)
+  let position = 0;
+  
+  // Animation loop
+  function animate() {
+    // Move the marquee
+    position -= speed;
+    
+    // When we've moved one content width, reset to 0 (seamless)
+    // Since we have 3 duplicates, we reset at 1/3 of total width
+    if (Math.abs(position) >= contentWidth) {
+      position = 0;
+    }
+    
+    // Apply transform
+    marquee.style.transform = `translateX(${position}px)`;
+    
+    // Continue animation
+    requestAnimationFrame(animate);
+  }
+  
+  // Start animation
+  animate();
 }
 
 /***************************************************************************/

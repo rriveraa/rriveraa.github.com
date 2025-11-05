@@ -325,8 +325,8 @@ a:hover:after {
   display: flex;
   width: 100%;
   height: 100%;
-  animation: marquee-scroll 30s linear infinite;
   will-change: transform;
+  // Animation is now handled by JavaScript for seamless looping
 }
 
 .marquee-content {
@@ -338,7 +338,7 @@ a:hover:after {
   
   // Ensure equal spacing on both sides of photo
   .marquee-photo {
-    margin: 0 120px; // Equal spacing on both sides (120px each side)
+    margin: 0 40px; // Equal spacing on both sides (120px each side)
   }
 }
 
