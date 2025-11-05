@@ -21,6 +21,8 @@ export class WebGLHoverEffect {
     this.mouseVelocity = new THREE.Vector2(0, 0);
     this.prevMouse = new THREE.Vector2(0.5, 0.5);
     this.isHovered = false;
+    this.targetScale = 1.0;
+    this.currentScale = 1.0;
     
     this.init();
   }
@@ -54,19 +56,21 @@ export class WebGLHoverEffect {
         uMouse: { value: new THREE.Vector2(0.5, 0.5) },
         uMouseVelocity: { value: new THREE.Vector2(0, 0) },
         uIntensity: { value: this.options.intensity },
+        uScale: { value: 1.0 },
         uColor: { value: this.options.color }
       },
       vertexShader: `
         uniform vec2 uMouse;
         uniform vec2 uMouseVelocity;
         uniform float uIntensity;
+        uniform float uScale;
         varying vec2 vUv;
         
         void main() {
           vUv = uv;
           
-          // Get original position
-          vec3 pos = position;
+          // Get original position and scale it
+          vec3 pos = position * uScale;
           
           // Convert UV to position space for distance calculation
           vec2 uvPos = uv * 2.0 - 1.0;
@@ -144,10 +148,12 @@ export class WebGLHoverEffect {
     // Event listeners
     container.addEventListener('mouseenter', () => {
       this.isHovered = true;
+      this.targetScale = 1.15; // 15% zoom on hover
     });
     
     container.addEventListener('mouseleave', () => {
       this.isHovered = false;
+      this.targetScale = 1.0; // Return to normal size
       this.targetMouse.set(0.5, 0.5);
       this.mouseVelocity.set(0, 0);
       this.prevMouse.set(0.5, 0.5);
@@ -185,11 +191,15 @@ export class WebGLHoverEffect {
     // Decay mouse velocity (smooth trailing effect)
     this.mouseVelocity.lerp(new THREE.Vector2(0, 0), 0.1);
     
+    // Smooth scale interpolation
+    this.currentScale += (this.targetScale - this.currentScale) * 0.1;
+    
     // Update shader uniforms
     if (this.mesh && this.mesh.material) {
       this.mesh.material.uniforms.uMouse.value = this.mouse;
       this.mesh.material.uniforms.uMouseVelocity.value = this.mouseVelocity;
       this.mesh.material.uniforms.uIntensity.value = this.isHovered ? this.options.intensity : 0;
+      this.mesh.material.uniforms.uScale.value = this.currentScale;
     }
     
     this.renderer.render(this.scene, this.camera);
