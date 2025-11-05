@@ -104,13 +104,12 @@ function initMarqueeLoop() {
     position -= speed;
     
     // When we've scrolled one full content width, reset seamlessly
-    // Since we have 3 duplicates, we can reset at exactly one width
-    // The reset happens when the first duplicate is completely off-screen
+    // Since we have 3 duplicates, when the first one is completely off-screen,
+    // the second duplicate is in the exact same visual position
+    // So we can reset to 0 without any visible jump
     if (position <= -contentWidth) {
-      // Reset position without visible jump
-      // Add the content width back to maintain visual continuity
-      // Since position is negative, adding contentWidth brings it closer to 0
-      position = position + contentWidth;
+      // Reset to 0 - the next duplicate is already in the same position
+      position = 0;
     }
     
     // Apply transform
