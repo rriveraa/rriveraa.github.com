@@ -113,18 +113,36 @@ export class WebGLHoverEffect {
           // Get texture 3 times, each time with a different offset, depending on mouse velocity
           // This creates the chromatic aberration / colorful edge effect
           // Increased multipliers for more visible distortion at edges
-          float r = texture2D(uTexture, zoomedUv + uMouseVelocity * 1.0).r;
-          float g = texture2D(uTexture, zoomedUv + uMouseVelocity * 1.05).g;
-          float b = texture2D(uTexture, zoomedUv + uMouseVelocity * 1.1).b;
+          vec2 aberrationOffset = uMouseVelocity * 1.2; // Slightly stronger for more color separation
+          float r = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(1.0, 0.0)).r;
+          float g = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(1.05, 0.0)).g;
+          float b = texture2D(uTexture, zoomedUv + aberrationOffset * vec2(1.1, 0.0)).b;
           
           // Get original alpha from zoomed UV
           float a = texture2D(uTexture, zoomedUv).a;
           
+          // Calculate edge proximity for colorful edge glow
+          float edgeProximity = 1.0 - smoothstep(0.45, 0.5, distFromCenter);
+          
+          // Create colorful edge effect based on mouse velocity direction
+          vec3 edgeColor = vec3(
+            0.5 + 0.5 * sin(length(uMouseVelocity) * 10.0 + 0.0),
+            0.5 + 0.5 * sin(length(uMouseVelocity) * 10.0 + 2.094),
+            0.5 + 0.5 * sin(length(uMouseVelocity) * 10.0 + 4.189)
+          );
+          
+          // Mix edge color with image based on proximity to edge
+          vec3 finalColor = mix(
+            vec3(r, g, b),
+            edgeColor,
+            edgeProximity * 0.4 * uIntensity
+          );
+          
           // Apply circular mask with smooth edge (allows distortion to show near edges)
           float edgeFade = 1.0 - smoothstep(0.48, 0.5, distFromCenter);
           
-          // Combine RGB channels with trailing effect
-          gl_FragColor = vec4(r, g, b, a * edgeFade);
+          // Combine RGB channels with trailing effect and colorful edges
+          gl_FragColor = vec4(finalColor, a * edgeFade);
         }
       `
     });
