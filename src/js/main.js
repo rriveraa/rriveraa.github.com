@@ -1,11 +1,14 @@
 /***************************************************************************/
 /* MODERN JAVASCRIPT - No jQuery! */
 /***************************************************************************/
+import { WebGLHoverEffect } from './webgl-effect.js';
+import * as THREE from 'three';
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initFullscreenHeader();
+  initWebGLEffects();
 });
 
 /***************************************************************************/
@@ -64,5 +67,49 @@ function initFullscreenHeader() {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(setFullscreenHeight, 100);
   });
+}
+
+/***************************************************************************/
+/* WEBGL HOVER EFFECTS */
+/***************************************************************************/
+function initWebGLEffects() {
+  // Wait for images to load
+  window.addEventListener('load', () => {
+    const photoImages = document.querySelectorAll('.marquee-photo img');
+    
+    photoImages.forEach((img) => {
+      // Only initialize if image has loaded
+      if (img.complete && img.naturalHeight !== 0) {
+        initWebGLEffect(img);
+      } else {
+        img.addEventListener('load', () => {
+          initWebGLEffect(img);
+        });
+      }
+    });
+  });
+}
+
+function initWebGLEffect(img) {
+  try {
+    // Make parent container relative positioned if not already
+    const container = img.parentElement;
+    if (getComputedStyle(container).position === 'static') {
+      container.style.position = 'relative';
+    }
+    
+    // Initialize WebGL effect
+    const effect = new WebGLHoverEffect(img, {
+      intensity: 0.6,
+      color: new THREE.Color(0x01FF89) // Green accent
+    });
+    
+    // Store reference for cleanup if needed
+    img._webglEffect = effect;
+  } catch (error) {
+    console.warn('WebGL effect initialization failed:', error);
+    // Fallback: show image normally
+    img.style.opacity = '1';
+  }
 }
 
