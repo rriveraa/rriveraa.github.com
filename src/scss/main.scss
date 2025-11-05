@@ -406,8 +406,9 @@ a:hover:after {
   line-height: 1.6;
   color: var(--color-primary);
   text-align: left; // Ensure text is left-aligned
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  word-wrap: normal; // Prevent word wrapping
+  overflow-wrap: normal; // Prevent word wrapping
+  white-space: normal; // Allow normal line breaks only at spaces
   box-sizing: border-box;
   
   // Mobile: Full width, no auto margin, prevent overflow
@@ -418,18 +419,18 @@ a:hover:after {
     margin-right: 0;
     padding: 0;
     font-size: 16px !important; // Ensure font size is applied on mobile
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
+    overflow-wrap: normal; // Prevent word wrapping
+    word-break: normal; // Prevent word breaking
+    hyphens: none; // Disable hyphens
+    white-space: normal; // Allow normal line breaks only at spaces
     box-sizing: border-box;
     min-width: 0; // Allow shrinking
     
-    // Ensure links wrap
+    // Links should not break either
     a {
-      word-break: break-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      overflow-wrap: normal;
       display: inline;
-      max-width: 100%;
     }
   }
   
@@ -667,20 +668,20 @@ a:hover:after {
   .bio-text {
     max-width: 100%;
     font-size: 16px !important; // Force font size on mobile
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    word-wrap: normal; // Prevent word wrapping
+    overflow-wrap: normal; // Prevent word wrapping
+    word-break: normal; // Prevent word breaking
+    white-space: normal; // Allow normal line breaks only at spaces
     width: 100%;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     
-    // Ensure links wrap properly
+    // Links should not break either
     a {
-      word-break: break-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      overflow-wrap: normal;
       display: inline;
-      max-width: 100%;
     }
   }
   
