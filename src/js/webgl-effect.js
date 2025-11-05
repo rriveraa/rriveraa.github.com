@@ -63,14 +63,13 @@ export class WebGLHoverEffect {
         uniform vec2 uMouse;
         uniform vec2 uMouseVelocity;
         uniform float uIntensity;
-        uniform float uScale;
         varying vec2 vUv;
         
         void main() {
           vUv = uv;
           
-          // Get original position and scale it
-          vec3 pos = position * uScale;
+          // Get original position
+          vec3 pos = position;
           
           // Convert UV to position space for distance calculation
           vec2 uvPos = uv * 2.0 - 1.0;
@@ -97,6 +96,7 @@ export class WebGLHoverEffect {
         uniform vec2 uMouse;
         uniform vec2 uMouseVelocity;
         uniform float uIntensity;
+        uniform float uScale;
         uniform vec3 uColor;
         varying vec2 vUv;
         
@@ -107,15 +107,18 @@ export class WebGLHoverEffect {
           vec2 center = vec2(0.5, 0.5);
           float distFromCenter = distance(uv, center);
           
+          // Zoom effect: scale UV coordinates from center
+          vec2 zoomedUv = (uv - center) / uScale + center;
+          
           // Get texture 3 times, each time with a different offset, depending on mouse velocity
           // This creates the chromatic aberration / colorful edge effect
           // Increased multipliers for more visible distortion at edges
-          float r = texture2D(uTexture, uv + uMouseVelocity * 1.0).r;
-          float g = texture2D(uTexture, uv + uMouseVelocity * 1.05).g;
-          float b = texture2D(uTexture, uv + uMouseVelocity * 1.1).b;
+          float r = texture2D(uTexture, zoomedUv + uMouseVelocity * 1.0).r;
+          float g = texture2D(uTexture, zoomedUv + uMouseVelocity * 1.05).g;
+          float b = texture2D(uTexture, zoomedUv + uMouseVelocity * 1.1).b;
           
-          // Get original alpha
-          float a = texture2D(uTexture, uv).a;
+          // Get original alpha from zoomed UV
+          float a = texture2D(uTexture, zoomedUv).a;
           
           // Apply circular mask with smooth edge (allows distortion to show near edges)
           float edgeFade = 1.0 - smoothstep(0.48, 0.5, distFromCenter);
