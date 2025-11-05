@@ -85,7 +85,7 @@ function initMarqueeLoop() {
   if (!firstContent) return;
   
   const contentWidth = firstContent.offsetWidth;
-  const speed = 0.5; // pixels per frame (adjust for speed)
+  const speed = 0.2; // pixels per frame (adjust for speed)
   let position = 0;
   
   // Animation loop
