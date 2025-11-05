@@ -343,14 +343,23 @@ a:hover:after {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  overflow: hidden;
+  overflow: visible; // Changed to visible to allow distortion to show
   background: var(--color-primary);
+  position: relative;
   
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 50%;
+    clip-path: circle(50% at center);
+  }
+  
+  // Canvas for WebGL - needs circular clipping
+  canvas {
+    border-radius: 50%;
+    clip-path: circle(50% at center);
   }
   
   // Fallback if image doesn't load

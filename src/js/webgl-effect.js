@@ -70,19 +70,27 @@ export class WebGLHoverEffect {
         void main() {
           vec2 uv = vUv;
           
+          // Circular mask - ensure we're within circle
+          vec2 center = vec2(0.5, 0.5);
+          float distFromCenter = distance(uv, center);
+          if (distFromCenter > 0.5) {
+            discard; // Outside circle
+          }
+          
           // Calculate distance from mouse
           float dist = distance(uv, uMouse);
           float influence = (1.0 - dist) * uIntensity;
           
           // Create distortion effect - stronger near mouse
-          vec2 distortion = (uv - uMouse) * influence * 0.15;
+          vec2 distortion = (uv - uMouse) * influence * 0.25;
           
           // Chromatic aberration - separate RGB channels for colorful edges
-          float aberrationAmount = influence * 0.008;
+          float aberrationAmount = influence * 0.015;
           
-          vec2 uvR = uv + distortion + vec2(aberrationAmount, 0.0);
+          // Apply distortion with different offsets for each channel
+          vec2 uvR = uv + distortion + vec2(aberrationAmount * 1.5, aberrationAmount * 0.5);
           vec2 uvG = uv + distortion;
-          vec2 uvB = uv + distortion - vec2(aberrationAmount, 0.0);
+          vec2 uvB = uv + distortion - vec2(aberrationAmount * 1.5, aberrationAmount * 0.5);
           
           // Sample each channel separately for colorful edge effect
           float r = texture2D(uTexture, uvR).r;
@@ -94,19 +102,22 @@ export class WebGLHoverEffect {
           
           // Add colorful tint to edges based on distortion
           vec3 edgeColor = vec3(
-            0.5 + 0.5 * sin(distortion.x * 20.0 + 0.0),
-            0.5 + 0.5 * sin(distortion.x * 20.0 + 2.094),
-            0.5 + 0.5 * sin(distortion.x * 20.0 + 4.189)
+            0.5 + 0.5 * sin(distortion.x * 25.0 + distortion.y * 15.0 + 0.0),
+            0.5 + 0.5 * sin(distortion.x * 25.0 + distortion.y * 15.0 + 2.094),
+            0.5 + 0.5 * sin(distortion.x * 25.0 + distortion.y * 15.0 + 4.189)
           );
           
           // Mix original color with edge color based on distortion intensity
           vec3 finalColor = mix(
             vec3(r, g, b),
             edgeColor,
-            influence * 0.4
+            influence * 0.5
           );
           
-          gl_FragColor = vec4(finalColor, a);
+          // Apply circular fade near edges for smoother look
+          float edgeFade = 1.0 - smoothstep(0.4, 0.5, distFromCenter);
+          
+          gl_FragColor = vec4(finalColor, a * edgeFade);
         }
       `
     });
