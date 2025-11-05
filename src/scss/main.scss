@@ -328,13 +328,15 @@ a:hover:after {
   .cursor-highlight {
     position: relative;
     cursor: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-decoration: none;
     
     &.text-highlighted {
-      background-color: var(--color-accent);
-      color: var(--color-bg);
-      padding: 2px 4px;
-      border-radius: 2px;
+      text-decoration: underline;
+      text-decoration-style: dashed;
+      text-decoration-color: var(--color-accent);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
     }
   }
 }
@@ -528,17 +530,17 @@ a:hover:after {
   display: block !important;
   
   &.cursor-hover {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background: #01FF89 !important; // Green accent
   }
 }
 
 .custom-cursor-follower {
   position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 2px solid #241C29 !important; // Fallback to ensure visibility
+  width: 24px;
+  height: 24px;
+  border: 1px solid #241C29 !important; // Fallback to ensure visibility
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
@@ -552,8 +554,8 @@ a:hover:after {
   display: block !important;
   
   &.cursor-follower-hover {
-    width: 80px;
-    height: 80px;
+    width: 32px;
+    height: 32px;
     border-color: #01FF89 !important; // Green accent
     border-width: 3px;
     opacity: 1 !important;
