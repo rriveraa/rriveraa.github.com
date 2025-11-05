@@ -37,8 +37,8 @@ export class WebGLHoverEffect {
     // Camera
     this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     
-    // Geometry
-    const geometry = new THREE.PlaneGeometry(2, 2, 32, 32);
+    // Geometry - more segments for smoother distortion
+    const geometry = new THREE.PlaneGeometry(2, 2, 64, 64);
     
     // Texture
     const texture = new THREE.TextureLoader().load(this.img.src, () => {
@@ -57,10 +57,49 @@ export class WebGLHoverEffect {
         uColor: { value: this.options.color }
       },
       vertexShader: `
+        uniform vec2 uMouse;
+        uniform vec2 uMouseVelocity;
+        uniform float uIntensity;
         varying vec2 vUv;
+        
         void main() {
           vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          
+          // Get original position
+          vec3 pos = position;
+          
+          // Convert UV to position space for distance calculation
+          vec2 uvPos = uv * 2.0 - 1.0;
+          vec2 mousePos = uMouse * 2.0 - 1.0;
+          float dist = distance(uvPos, mousePos);
+          float influence = (1.0 - dist) * uIntensity;
+          
+          // Displace vertices based on mouse velocity (distorts the actual shape including edges)
+          vec2 displacement = uMouseVelocity * influence * 0.2;
+          pos.xy += displacement;
+          
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+        }
+      `,
+        
+        void main() {
+          vUv = uv;
+          
+          // Convert UV to position space (-1 to 1)
+          vec2 pos = uv * 2.0 - 1.0;
+          
+          // Calculate distance from mouse
+          vec2 mousePos = uMouse * 2.0 - 1.0;
+          float dist = distance(pos, mousePos);
+          float influence = (1.0 - dist) * uIntensity;
+          
+          // Displace vertices based on mouse velocity and position
+          vec2 displacement = uMouseVelocity * influence * 0.3;
+          pos += displacement;
+          
+          // Convert back to standard position
+          vec4 newPosition = vec4(pos, 0.0, 1.0);
+          gl_Position = projectionMatrix * modelViewMatrix * newPosition;
         }
       `,
       fragmentShader: `
@@ -74,6 +113,10 @@ export class WebGLHoverEffect {
         void main() {
           vec2 uv = vUv;
           
+          // Circular mask - ensure we're within circle
+          vec2 center = vec2(0.5, 0.5);
+          float distFromCenter = distance(uv, center);
+          
           // Get texture 3 times, each time with a different offset, depending on mouse velocity
           // This creates the chromatic aberration / colorful edge effect
           // Increased multipliers for more visible distortion at edges
@@ -84,8 +127,11 @@ export class WebGLHoverEffect {
           // Get original alpha
           float a = texture2D(uTexture, uv).a;
           
+          // Apply circular mask with smooth edge (allows distortion to show near edges)
+          float edgeFade = 1.0 - smoothstep(0.48, 0.5, distFromCenter);
+          
           // Combine RGB channels with trailing effect
-          gl_FragColor = vec4(r, g, b, a);
+          gl_FragColor = vec4(r, g, b, a * edgeFade);
         }
       `
     });
