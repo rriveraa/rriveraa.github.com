@@ -23,14 +23,7 @@ export class CustomCursor {
     
     // Event listeners
     document.addEventListener('mousemove', this.onMouseMove.bind(this));
-    document.addEventListener('mouseenter', () => {
-      this.cursor.style.opacity = '1';
-      this.cursorFollower.style.opacity = '1';
-    });
-    document.addEventListener('mouseleave', () => {
-      this.cursor.style.opacity = '0';
-      this.cursorFollower.style.opacity = '0';
-    });
+    // Cursor is visible by default, no need to toggle on mouseenter/leave
     
     // Handle text highlights
     this.initTextHighlights();
