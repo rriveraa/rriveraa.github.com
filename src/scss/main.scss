@@ -354,10 +354,11 @@ a:hover:after {
     margin-bottom: 0;
     max-width: 100%;
     word-wrap: break-word;
-    text-align: right; // Align text to right to match logo position
+    text-align: left; // Left align text on mobile
     position: absolute; // Absolute positioning to move closer to bio
     bottom: 160px; // Position above bio text (which is at bottom: 0)
-    right: 10px; // Align with right padding
+    left: 100px; // Align with left padding (accounting for marquee)
+    right: 10px; // Account for right padding
     width: calc(100vw - 120px); // Account for left marquee space and padding
   }
 }
