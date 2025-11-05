@@ -520,7 +520,7 @@ a:hover:after {
     right: auto;
     width: 80px;
     height: 100vh;
-    background: var(--color-bg); // White background on mobile (not transparent)
+    background: #fff !important; // Explicit white background on mobile
     max-width: 80px; // Prevent overflow
     box-sizing: border-box;
   }
@@ -577,8 +577,8 @@ a:hover:after {
   width: 160px;
   height: 160px;
   border-radius: 50%; // Circle
-  overflow: visible; // Allow distortion to extend beyond edges
-  background: transparent;
+  overflow: hidden; // Change to hidden to prevent white border showing
+  background: var(--color-bg); // Use white background to match page
   position: relative;
   border: none;
   outline: none;
