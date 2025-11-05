@@ -363,19 +363,25 @@ a:hover:after {
   box-sizing: border-box;
   overflow-x: hidden; // Prevent horizontal overflow
   
-  // Mobile: Add left padding for vertical marquee
+  // Mobile: Position bio at bottom of screen
   @media only screen and (max-width: 768px) {
+    position: fixed; // Fixed positioning on mobile
+    bottom: 0; // Position at bottom
+    left: 0;
+    right: 0;
     padding-left: 100px; // Space for vertical marquee on left
     padding-right: 20px; // Right padding (increased for visibility)
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     max-width: 100vw; // Use full viewport
     overflow-x: hidden; // Prevent horizontal scroll
     box-sizing: border-box;
     width: 100vw; // Full viewport width
     margin-left: 0;
     margin-right: 0;
-    position: relative; // Ensure proper positioning
+    min-height: auto; // Remove min-height on mobile
+    background: var(--color-bg); // Ensure white background
+    z-index: 5; // Above marquee but below other elements if needed
   }
 }
 
