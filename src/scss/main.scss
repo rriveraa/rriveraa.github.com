@@ -282,9 +282,9 @@ a:hover:after {
   font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 0.5px;
-  text-align: right;
+  text-align: left; // Left-align to match bio text start position
   max-width: 600px; // Match bio text max-width for alignment
-  margin-left: auto; // Align to right
+  margin-left: auto; // Align container to right, but text inside is left-aligned
 }
 
 /***************************************************************************/
@@ -307,11 +307,12 @@ a:hover:after {
 .bio-text {
   max-width: 600px;
   margin: 0;
-  margin-left: auto; // Align to right, matching header role position
+  margin-left: auto; // Align container to right, matching header role position
   font-family: var(--font-primary);
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-primary);
+  text-align: left; // Ensure text is left-aligned
   
   strong {
     font-weight: 700;
