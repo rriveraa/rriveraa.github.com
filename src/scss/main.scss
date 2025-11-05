@@ -359,7 +359,7 @@ a:hover:after {
   // Mobile: Add left padding for vertical marquee
   @media only screen and (max-width: 768px) {
     padding-left: 100px; // Space for vertical marquee on left
-    padding-right: 10px; // Small right padding
+    padding-right: 20px; // Right padding (increased for visibility)
     padding-top: 40px;
     padding-bottom: 40px;
     max-width: 100vw; // Use full viewport
@@ -368,6 +368,7 @@ a:hover:after {
     width: 100vw; // Full viewport width
     margin-left: 0;
     margin-right: 0;
+    position: relative; // Ensure proper positioning
   }
 }
 
@@ -379,15 +380,17 @@ a:hover:after {
   width: 100%;
   overflow-x: hidden; // Prevent overflow
   
-  // Mobile: Reduce padding to prevent overflow
+  // Mobile: Ensure container respects parent padding
   @media only screen and (max-width: 768px) {
-    padding: 0; // No padding to prevent overflow
-    max-width: 100%; // Full width of parent (which is already constrained)
+    padding: 0; // No additional padding - parent handles it
+    max-width: 100%; // Full width of parent (which has padding)
     width: 100%; // Full width of parent
     margin-left: 0; // Remove auto margin
     margin-right: 0;
     box-sizing: border-box;
     overflow-x: hidden; // Prevent any overflow
+    // Ensure container doesn't exceed parent's content area
+    min-width: 0; // Allow flex shrinking
   }
 }
 
@@ -410,16 +413,20 @@ a:hover:after {
     max-width: 100%;
     width: 100%;
     margin-left: 0;
+    margin-right: 0;
     padding: 0;
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
+    box-sizing: border-box;
+    min-width: 0; // Allow shrinking
     
     // Ensure links wrap
     a {
       word-break: break-all;
       overflow-wrap: anywhere;
       display: inline;
+      max-width: 100%;
     }
   }
   
