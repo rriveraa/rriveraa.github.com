@@ -311,6 +311,14 @@ a:hover:after {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 40px; // Match header horizontal padding (top-header has 40px)
+  box-sizing: border-box;
+  width: 100%;
+  
+  // Mobile: Reduce padding to prevent overflow
+  @media only screen and (max-width: 768px) {
+    padding: 0 20px;
+    max-width: 100%;
+  }
 }
 
 // Bio Text (Body Content)
@@ -323,6 +331,8 @@ a:hover:after {
   line-height: 1.6;
   color: var(--color-primary);
   text-align: left; // Ensure text is left-aligned
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   
   strong {
     font-weight: 700;
@@ -524,6 +534,9 @@ a:hover:after {
 @media only screen and (max-width: 768px) {
   .top-header {
     padding: 30px 20px;
+    padding-left: 96px; // Space for vertical marquee on left
+
+    
   }
   
   .header-logo .logo-symbol {
@@ -539,7 +552,7 @@ a:hover:after {
   
   .main-content {
     padding: 40px 20px;
-    padding-left: 100px; // Space for vertical marquee on left
+    padding-left: 60px; // Space for vertical marquee on left
     padding-bottom: 40px; // No need for bottom padding on mobile
   }
   
@@ -555,29 +568,32 @@ a:hover:after {
   }
   
   .marquee-content {
+    margin: 0px 0px;
+    padding: 0px 0px;
     // Vertical layout already defined above
   }
   
   .marquee-photo {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
   }
   
   .marquee-name {
-    font-size: 32px;
-    letter-spacing: 1px;
+    font-size: 84px;
+    letter-spacing: -5px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .marquee-name {
-    font-size: 36px;
-    letter-spacing: 1px;
+    font-size: 62px;
+    letter-spacing: -3px;
   }
   
   .marquee-photo {
-    width: 50px;
-    height: 50px;
+    width: 64px;
+    height: 64px;
+    margin: 0px 0px;
   }
   
   .bio-text {
