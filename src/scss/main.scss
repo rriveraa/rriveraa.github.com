@@ -338,7 +338,7 @@ a:hover:after {
     max-width: calc(100vw - 100px); // Account for marquee width
     overflow-x: hidden; // Prevent horizontal scroll
     box-sizing: border-box;
-    width: calc(100% - 100px); // Explicit width calculation
+    width: calc(100vw - 100px); // Use viewport width for explicit calculation
   }
 }
 
@@ -353,9 +353,10 @@ a:hover:after {
   // Mobile: Reduce padding to prevent overflow
   @media only screen and (max-width: 768px) {
     padding: 0 10px; // Reduced padding for mobile
-    max-width: 100%;
-    width: calc(100% - 100px); // Account for marquee space
+    max-width: calc(100vw - 100px); // Account for marquee width
+    width: calc(100vw - 100px); // Explicit width calculation
     margin-left: 0; // Remove auto margin
+    box-sizing: border-box;
   }
 }
 
@@ -371,6 +372,14 @@ a:hover:after {
   text-align: left; // Ensure text is left-aligned
   word-wrap: break-word;
   overflow-wrap: break-word;
+  box-sizing: border-box;
+  
+  // Mobile: Full width, no auto margin
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+  }
   
   strong {
     font-weight: 700;
@@ -595,7 +604,7 @@ a:hover:after {
     max-width: calc(100vw - 100px); // Account for marquee width
     overflow-x: hidden; // Prevent horizontal scroll
     box-sizing: border-box;
-    width: calc(100% - 100px); // Explicit width calculation
+    width: calc(100vw - 100px); // Use viewport width for explicit calculation
   }
   
   .bio-text {
