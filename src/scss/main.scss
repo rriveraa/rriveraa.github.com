@@ -546,6 +546,14 @@ a:hover:after {
     background: #01ff887a !important; // Green accent
     backdrop-filter: blur(2px) saturate(180%);
     -webkit-backdrop-filter: blur(2px) saturate(180%);
+    
+    // Icon styling
+    .cursor-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      filter: brightness(0); // Make icon black
+    }
   }
 }
 

@@ -91,11 +91,26 @@ export class CustomCursor {
     const highlights = document.querySelectorAll('.cursor-highlight');
     
     highlights.forEach(highlight => {
+      const href = highlight.getAttribute('href');
+      let iconSrc = null;
+      
+      // Determine which icon to show based on link
+      if (href && href.includes('linkedin.com')) {
+        iconSrc = '/images/llogo.svg';
+      } else if (href && href.includes('chatgpt.com')) {
+        iconSrc = '/images/see.svg';
+      }
+      
       highlight.addEventListener('mouseenter', () => {
         this.isHovering = true;
         this.highlightedText = highlight.getAttribute('data-text');
         this.cursor.classList.add('cursor-hover');
         this.cursorFollower.classList.add('cursor-follower-hover');
+        
+        // Add icon if available
+        if (iconSrc) {
+          this.showIcon(iconSrc);
+        }
         
         // Highlight the text
         highlight.classList.add('text-highlighted');
@@ -107,10 +122,42 @@ export class CustomCursor {
         this.cursor.classList.remove('cursor-hover');
         this.cursorFollower.classList.remove('cursor-follower-hover');
         
+        // Remove icon
+        this.hideIcon();
+        
         // Remove highlight
         highlight.classList.remove('text-highlighted');
       });
     });
+  }
+  
+  showIcon(iconSrc) {
+    // Remove existing icon if any
+    this.hideIcon();
+    
+    // Create icon element
+    const icon = document.createElement('img');
+    icon.src = iconSrc;
+    icon.className = 'cursor-icon';
+    icon.style.cssText = `
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+      z-index: 100000;
+    `;
+    this.cursor.appendChild(icon);
+    this.cursorIcon = icon;
+  }
+  
+  hideIcon() {
+    if (this.cursorIcon) {
+      this.cursorIcon.remove();
+      this.cursorIcon = null;
+    }
   }
   
   onMouseMove(e) {
