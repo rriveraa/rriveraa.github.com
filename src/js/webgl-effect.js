@@ -70,22 +70,15 @@ export class WebGLHoverEffect {
         void main() {
           vec2 uv = vUv;
           
-          // Circular mask - ensure we're within circle
-          vec2 center = vec2(0.5, 0.5);
-          float distFromCenter = distance(uv, center);
-          if (distFromCenter > 0.5) {
-            discard; // Outside circle
-          }
-          
           // Calculate distance from mouse
           float dist = distance(uv, uMouse);
           float influence = (1.0 - dist) * uIntensity;
           
           // Create distortion effect - stronger near mouse
-          vec2 distortion = (uv - uMouse) * influence * 0.25;
+          vec2 distortion = (uv - uMouse) * influence * 0.2;
           
           // Chromatic aberration - separate RGB channels for colorful edges
-          float aberrationAmount = influence * 0.015;
+          float aberrationAmount = influence * 0.012;
           
           // Apply distortion with different offsets for each channel
           vec2 uvR = uv + distortion + vec2(aberrationAmount * 1.5, aberrationAmount * 0.5);
@@ -114,10 +107,7 @@ export class WebGLHoverEffect {
             influence * 0.5
           );
           
-          // Apply circular fade near edges for smoother look
-          float edgeFade = 1.0 - smoothstep(0.4, 0.5, distFromCenter);
-          
-          gl_FragColor = vec4(finalColor, a * edgeFade);
+          gl_FragColor = vec4(finalColor, a);
         }
       `
     });
