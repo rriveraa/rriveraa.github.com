@@ -18,6 +18,8 @@ export class WebGLHoverEffect {
     this.mesh = null;
     this.mouse = new THREE.Vector2(0.5, 0.5);
     this.targetMouse = new THREE.Vector2(0.5, 0.5);
+    this.mouseVelocity = new THREE.Vector2(0, 0);
+    this.prevMouse = new THREE.Vector2(0.5, 0.5);
     this.isHovered = false;
     
     this.init();
@@ -50,6 +52,7 @@ export class WebGLHoverEffect {
       uniforms: {
         uTexture: { value: texture },
         uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+        uMouseVelocity: { value: new THREE.Vector2(0, 0) },
         uIntensity: { value: this.options.intensity },
         uColor: { value: this.options.color }
       },
@@ -63,6 +66,7 @@ export class WebGLHoverEffect {
       fragmentShader: `
         uniform sampler2D uTexture;
         uniform vec2 uMouse;
+        uniform vec2 uMouseVelocity;
         uniform float uIntensity;
         uniform vec3 uColor;
         varying vec2 vUv;
@@ -70,44 +74,17 @@ export class WebGLHoverEffect {
         void main() {
           vec2 uv = vUv;
           
-          // Calculate distance from mouse
-          float dist = distance(uv, uMouse);
-          float influence = (1.0 - dist) * uIntensity;
-          
-          // Create distortion effect - stronger near mouse
-          vec2 distortion = (uv - uMouse) * influence * 0.2;
-          
-          // Chromatic aberration - separate RGB channels for colorful edges
-          float aberrationAmount = influence * 0.012;
-          
-          // Apply distortion with different offsets for each channel
-          vec2 uvR = uv + distortion + vec2(aberrationAmount * 1.5, aberrationAmount * 0.5);
-          vec2 uvG = uv + distortion;
-          vec2 uvB = uv + distortion - vec2(aberrationAmount * 1.5, aberrationAmount * 0.5);
-          
-          // Sample each channel separately for colorful edge effect
-          float r = texture2D(uTexture, uvR).r;
-          float g = texture2D(uTexture, uvG).g;
-          float b = texture2D(uTexture, uvB).b;
+          // Get texture 3 times, each time with a different offset, depending on mouse velocity
+          // This creates the chromatic aberration / colorful edge effect
+          float r = texture2D(uTexture, uv + uMouseVelocity * 0.5).r;
+          float g = texture2D(uTexture, uv + uMouseVelocity * 0.525).g;
+          float b = texture2D(uTexture, uv + uMouseVelocity * 0.55).b;
           
           // Get original alpha
           float a = texture2D(uTexture, uv).a;
           
-          // Add colorful tint to edges based on distortion
-          vec3 edgeColor = vec3(
-            0.5 + 0.5 * sin(distortion.x * 25.0 + distortion.y * 15.0 + 0.0),
-            0.5 + 0.5 * sin(distortion.x * 25.0 + distortion.y * 15.0 + 2.094),
-            0.5 + 0.5 * sin(distortion.x * 25.0 + distortion.y * 15.0 + 4.189)
-          );
-          
-          // Mix original color with edge color based on distortion intensity
-          vec3 finalColor = mix(
-            vec3(r, g, b),
-            edgeColor,
-            influence * 0.5
-          );
-          
-          gl_FragColor = vec4(finalColor, a);
+          // Combine RGB channels with trailing effect
+          gl_FragColor = vec4(r, g, b, a);
         }
       `
     });
@@ -139,6 +116,8 @@ export class WebGLHoverEffect {
     container.addEventListener('mouseleave', () => {
       this.isHovered = false;
       this.targetMouse.set(0.5, 0.5);
+      this.mouseVelocity.set(0, 0);
+      this.prevMouse.set(0.5, 0.5);
     });
     
     container.addEventListener('mousemove', (e) => {
@@ -146,6 +125,13 @@ export class WebGLHoverEffect {
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1.0 - (e.clientY - rect.top) / rect.height; // Flip Y
       this.targetMouse.set(x, y);
+      
+      // Calculate mouse velocity for trailing effect
+      this.mouseVelocity.set(
+        (x - this.prevMouse.x) * 10.0,
+        (y - this.prevMouse.y) * 10.0
+      );
+      this.prevMouse.set(x, y);
     });
     
     // Animation
@@ -163,9 +149,13 @@ export class WebGLHoverEffect {
     // Smooth mouse interpolation
     this.mouse.lerp(this.targetMouse, 0.1);
     
+    // Decay mouse velocity (smooth trailing effect)
+    this.mouseVelocity.lerp(new THREE.Vector2(0, 0), 0.1);
+    
     // Update shader uniforms
     if (this.mesh && this.mesh.material) {
       this.mesh.material.uniforms.uMouse.value = this.mouse;
+      this.mesh.material.uniforms.uMouseVelocity.value = this.mouseVelocity;
       this.mesh.material.uniforms.uIntensity.value = this.isHovered ? this.options.intensity : 0;
     }
     
