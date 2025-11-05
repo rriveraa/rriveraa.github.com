@@ -692,7 +692,7 @@ a:hover:after {
     // Mobile: Underline links
     a.cursor-highlight {
       text-decoration: underline;
-      text-decoration-style: solid;
+      text-decoration-style: dotted;
       text-decoration-color: var(--color-primary);
       text-decoration-thickness: 1px;
       text-underline-offset: 4px;
