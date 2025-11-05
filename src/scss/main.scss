@@ -334,7 +334,7 @@ a:hover:after {
     &.text-highlighted {
       text-decoration: underline;
       text-decoration-style: dashed;
-      text-decoration-color: var(--color-accent);
+      text-decoration-color: var(--color-primary);
       text-decoration-thickness: 2px;
       text-underline-offset: 6px;
     }
