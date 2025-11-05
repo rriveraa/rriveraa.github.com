@@ -56,13 +56,42 @@ export class CustomCursor {
     // Main cursor (small dot)
     this.cursor = document.createElement('div');
     this.cursor.className = 'custom-cursor';
-    this.cursor.style.opacity = '1';
+    // Set inline styles to ensure visibility
+    this.cursor.style.cssText = `
+      position: fixed !important;
+      width: 8px !important;
+      height: 8px !important;
+      background: #241C29 !important;
+      border-radius: 50% !important;
+      pointer-events: none !important;
+      z-index: 99999 !important;
+      opacity: 1 !important;
+      display: block !important;
+      left: 0;
+      top: 0;
+      transform: translate(-50%, -50%);
+    `;
     document.body.appendChild(this.cursor);
     
     // Follower cursor (magnetic circle)
     this.cursorFollower = document.createElement('div');
     this.cursorFollower.className = 'custom-cursor-follower';
-    this.cursorFollower.style.opacity = '0.6';
+    // Set inline styles to ensure visibility
+    this.cursorFollower.style.cssText = `
+      position: fixed !important;
+      width: 40px !important;
+      height: 40px !important;
+      border: 2px solid #241C29 !important;
+      border-radius: 50% !important;
+      pointer-events: none !important;
+      z-index: 99998 !important;
+      opacity: 0.6 !important;
+      display: block !important;
+      background: transparent !important;
+      left: 0;
+      top: 0;
+      transform: translate(-50%, -50%);
+    `;
     document.body.appendChild(this.cursorFollower);
   }
   
