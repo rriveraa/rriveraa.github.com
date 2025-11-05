@@ -256,6 +256,14 @@ a:hover:after {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  
+  // Mobile: Prevent overflow
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+    max-width: 100vw;
+  }
 }
 
 .header-logo {
@@ -303,6 +311,13 @@ a:hover:after {
   max-width: 600px; // Match bio text max-width for alignment
   margin-left: auto; // Align container to right, but text inside is left-aligned
   margin-right: 148px; // Static offset to align with bio text vertical line
+  
+  // Mobile: Remove margin offset and adjust
+  @media only screen and (max-width: 768px) {
+    margin-right: 0;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
 }
 
 /***************************************************************************/
@@ -319,10 +334,10 @@ a:hover:after {
   
   // Mobile: Add left padding for vertical marquee
   @media only screen and (max-width: 768px) {
-    padding-left: 100px; // Space for vertical marquee on left
-    padding-bottom: 40px; // No need for bottom padding on mobile
-    padding-right: 20px; // Ensure right padding
+    padding: 40px 20px 40px 100px; // Space for vertical marquee on left
     max-width: 100vw; // Prevent overflow
+    overflow-x: hidden; // Prevent horizontal scroll
+    box-sizing: border-box;
   }
 }
 
@@ -429,6 +444,8 @@ a:hover:after {
     width: 80px;
     height: 100vh;
     background: transparent;
+    max-width: 80px; // Prevent overflow
+    box-sizing: border-box;
   }
 }
 
@@ -570,12 +587,10 @@ a:hover:after {
   }
   
   .main-content {
-    padding: 40px 20px;
-    padding-left: 100px; // Space for vertical marquee on left
-    padding-bottom: 40px; // No need for bottom padding on mobile
-    padding-right: 20px; // Ensure right padding
+    padding: 40px 20px 40px 100px; // Space for vertical marquee on left
     max-width: 100vw; // Prevent overflow
     overflow-x: hidden; // Prevent horizontal scroll
+    box-sizing: border-box;
   }
   
   .bio-text {
