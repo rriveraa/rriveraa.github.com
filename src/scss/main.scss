@@ -71,7 +71,7 @@ body {
   background: var(--color-bg); // Explicit white background
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   width: 100%;
   max-width: 100vw;
   box-sizing: border-box;
@@ -737,10 +737,6 @@ a:hover:after {
   }
   
   // Vertical marquee styles already defined above
-  // Override the existing mobile styles
-  .marquee-wrapper {
-    // Already styled as vertical on left in main styles
-  }
   
   .marquee-content {
     margin: 0px 0px;
