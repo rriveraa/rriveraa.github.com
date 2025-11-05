@@ -56,13 +56,9 @@ export class CustomCursor {
     // Main cursor (small dot)
     this.cursor = document.createElement('div');
     this.cursor.className = 'custom-cursor';
-    // Set inline styles to ensure visibility
+    // Set only essential positioning styles - let CSS handle sizing/colors
     this.cursor.style.cssText = `
       position: fixed !important;
-      width: 8px !important;
-      height: 8px !important;
-      background: #241C29 !important;
-      border-radius: 50% !important;
       pointer-events: none !important;
       z-index: 99999 !important;
       opacity: 1 !important;
@@ -76,13 +72,9 @@ export class CustomCursor {
     // Follower cursor (magnetic circle)
     this.cursorFollower = document.createElement('div');
     this.cursorFollower.className = 'custom-cursor-follower';
-    // Set inline styles to ensure visibility
+    // Set only essential positioning styles - let CSS handle sizing/colors
     this.cursorFollower.style.cssText = `
       position: fixed !important;
-      width: 40px !important;
-      height: 40px !important;
-      border: 2px solid #241C29 !important;
-      border-radius: 50% !important;
       pointer-events: none !important;
       z-index: 99998 !important;
       opacity: 0.6 !important;
