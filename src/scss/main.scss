@@ -259,25 +259,20 @@ a:hover:after {
   width: 100%;
   box-sizing: border-box;
   
-  // Mobile: Reduce padding to prevent overflow, position header at bottom
+  // Mobile: Reduce padding to prevent overflow, logo stays at top
   @media only screen and (max-width: 768px) {
     padding: 16px 20px;
     padding-left: 100px; // Account for marquee space
     padding-right: 10px; // Small right padding
-    padding-bottom: 140px; // Add bottom padding to position closer to bio
+    padding-top: 16px; // Keep logo at top
     max-width: 100vw;
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;
     margin-left: 0;
     margin-right: 0;
-    position: fixed; // Fixed positioning to control distance from bio
-    bottom: 140px; // Position above bio text (which is at bottom: 0)
-    left: 0;
-    right: 0;
-    z-index: 6; // Above bio (z-index: 5) to ensure visibility
+    position: relative; // Normal positioning, not fixed
     background: #fff !important; // Ensure white background
-    display: block !important; // Ensure header is visible
   }
 }
 
@@ -289,6 +284,7 @@ a:hover:after {
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  position: relative; // For absolute positioning of header-role on mobile
   
   // Mobile: Stack logo and text vertically, logo on right
   @media only screen and (max-width: 768px) {
@@ -299,6 +295,7 @@ a:hover:after {
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
+    min-height: calc(100vh - 140px); // Make container tall enough for absolute positioning
   }
 }
 
@@ -354,10 +351,14 @@ a:hover:after {
     margin-top: 12px; // Add spacing between logo and text on mobile
     margin-left: 0; // Remove auto margin since we're stacking vertically
     margin-right: 0; // Remove right margin offset
-    margin-bottom: auto; // Push to bottom, closer to bio text
+    margin-bottom: 0;
     max-width: 100%;
     word-wrap: break-word;
     text-align: right; // Align text to right to match logo position
+    position: absolute; // Absolute positioning to move closer to bio
+    bottom: 160px; // Position above bio text (which is at bottom: 0)
+    right: 10px; // Align with right padding
+    width: calc(100vw - 120px); // Account for left marquee space and padding
   }
 }
 
@@ -668,14 +669,9 @@ a:hover:after {
     padding: 16px 20px;
     padding-left: 100px; // Space for vertical marquee on left
     padding-right: 10px; // Small right padding
-    padding-bottom: 140px; // Add bottom padding to position closer to bio
-    position: fixed; // Fixed positioning to control distance from bio
-    bottom: 140px; // Position above bio text (which is at bottom: 0)
-    left: 0;
-    right: 0;
-    z-index: 6; // Above bio (z-index: 5) to ensure visibility
+    padding-top: 16px; // Keep logo at top
+    position: relative; // Normal positioning, not fixed
     background: #fff !important; // Ensure white background
-    display: block !important; // Ensure header is visible
   }
   
   .header-logo .logo-symbol {
