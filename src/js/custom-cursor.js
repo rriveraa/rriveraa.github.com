@@ -36,11 +36,13 @@ export class CustomCursor {
     // Main cursor (small dot)
     this.cursor = document.createElement('div');
     this.cursor.className = 'custom-cursor';
+    this.cursor.style.opacity = '1';
     document.body.appendChild(this.cursor);
     
     // Follower cursor (magnetic circle)
     this.cursorFollower = document.createElement('div');
     this.cursorFollower.className = 'custom-cursor-follower';
+    this.cursorFollower.style.opacity = '0.6';
     document.body.appendChild(this.cursorFollower);
   }
   
@@ -74,8 +76,9 @@ export class CustomCursor {
     this.mouse.x = e.clientX;
     this.mouse.y = e.clientY;
     
-    // Update main cursor position immediately
-    this.cursor.style.transform = `translate(${this.mouse.x}px, ${this.mouse.y}px)`;
+    // Update main cursor position immediately (centered)
+    this.cursor.style.left = `${this.mouse.x}px`;
+    this.cursor.style.top = `${this.mouse.y}px`;
   }
   
   animate() {
@@ -84,8 +87,9 @@ export class CustomCursor {
     this.follower.x += (this.mouse.x - this.follower.x) * ease;
     this.follower.y += (this.mouse.y - this.follower.y) * ease;
     
-    // Apply to follower
-    this.cursorFollower.style.transform = `translate(${this.follower.x}px, ${this.follower.y}px)`;
+    // Apply to follower (centered)
+    this.cursorFollower.style.left = `${this.follower.x}px`;
+    this.cursorFollower.style.top = `${this.follower.y}px`;
     
     requestAnimationFrame(() => this.animate());
   }
