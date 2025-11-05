@@ -348,11 +348,16 @@ a:hover:after {
   
   // Mobile: Add left padding for vertical marquee
   @media only screen and (max-width: 768px) {
-    padding: 40px 10px 40px 100px; // Space for vertical marquee on left, reduced right padding
-    max-width: calc(100vw - 100px); // Account for marquee width
+    padding-left: 100px; // Space for vertical marquee on left
+    padding-right: 10px; // Small right padding
+    padding-top: 40px;
+    padding-bottom: 40px;
+    max-width: 100vw; // Use full viewport
     overflow-x: hidden; // Prevent horizontal scroll
     box-sizing: border-box;
-    width: calc(100vw - 100px); // Use viewport width for explicit calculation
+    width: 100vw; // Full viewport width
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -367,9 +372,10 @@ a:hover:after {
   // Mobile: Reduce padding to prevent overflow
   @media only screen and (max-width: 768px) {
     padding: 0; // No padding to prevent overflow
-    max-width: calc(100vw - 100px); // Account for marquee width
-    width: calc(100vw - 100px); // Explicit width calculation
+    max-width: 100%; // Full width of parent (which is already constrained)
+    width: 100%; // Full width of parent
     margin-left: 0; // Remove auto margin
+    margin-right: 0;
     box-sizing: border-box;
     overflow-x: hidden; // Prevent any overflow
   }
@@ -626,11 +632,16 @@ a:hover:after {
   }
   
   .main-content {
-    padding: 40px 10px 40px 100px; // Space for vertical marquee on left, reduced right padding
-    max-width: calc(100vw - 100px); // Account for marquee width
+    padding-left: 100px; // Space for vertical marquee on left
+    padding-right: 10px; // Small right padding
+    padding-top: 40px;
+    padding-bottom: 40px;
+    max-width: 100vw; // Full viewport
     overflow-x: hidden; // Prevent horizontal scroll
     box-sizing: border-box;
-    width: calc(100vw - 100px); // Use viewport width for explicit calculation
+    width: 100vw; // Full viewport width
+    margin-left: 0;
+    margin-right: 0;
   }
   
   .bio-text {
