@@ -275,8 +275,9 @@ a:hover:after {
     bottom: 140px; // Position above bio text (which is at bottom: 0)
     left: 0;
     right: 0;
-    z-index: 4; // Below bio (z-index: 5) but above marquee
+    z-index: 6; // Above bio (z-index: 5) to ensure visibility
     background: #fff !important; // Ensure white background
+    display: block !important; // Ensure header is visible
   }
 }
 
