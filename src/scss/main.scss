@@ -580,6 +580,9 @@ a:hover:after {
   overflow: visible; // Allow distortion to extend beyond edges
   background: transparent;
   position: relative;
+  border: none;
+  outline: none;
+  box-shadow: none;
   
   img {
     width: 100%;
@@ -588,6 +591,9 @@ a:hover:after {
     display: block;
     transition: opacity 0.3s;
     border-radius: 50%;
+    border: none;
+    outline: none;
+    box-shadow: none;
   }
   
   // Canvas for WebGL - covers full area and extends beyond
@@ -599,6 +605,9 @@ a:hover:after {
     height: calc(100% + 20px);
     z-index: 2;
     border-radius: 50%;
+    border: none;
+    outline: none;
+    box-shadow: none;
   }
   
   // Fallback if image doesn't load
