@@ -515,7 +515,7 @@ a:hover:after {
   position: fixed;
   width: 8px;
   height: 8px;
-  background: var(--color-primary) !important;
+  background: #241C29 !important; // Fallback to ensure visibility
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
@@ -525,11 +525,12 @@ a:hover:after {
   transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
   opacity: 1 !important;
   will-change: left, top;
+  display: block !important;
   
   &.cursor-hover {
     width: 40px;
     height: 40px;
-    background: var(--color-accent) !important;
+    background: #01FF89 !important; // Green accent
   }
 }
 
@@ -537,7 +538,7 @@ a:hover:after {
   position: fixed;
   width: 40px;
   height: 40px;
-  border: 2px solid var(--color-primary) !important;
+  border: 2px solid #241C29 !important; // Fallback to ensure visibility
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
@@ -548,11 +549,12 @@ a:hover:after {
   opacity: 0.6 !important;
   background: transparent;
   will-change: left, top;
+  display: block !important;
   
   &.cursor-follower-hover {
     width: 80px;
     height: 80px;
-    border-color: var(--color-accent) !important;
+    border-color: #01FF89 !important; // Green accent
     border-width: 3px;
     opacity: 1 !important;
   }
