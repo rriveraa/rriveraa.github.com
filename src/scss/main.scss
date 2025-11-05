@@ -666,9 +666,16 @@ a:hover:after {
 @media only screen and (max-width: 768px) {
   .top-header {
     padding: 16px 20px;
-    padding-left: 96px; // Space for vertical marquee on left
-
-    
+    padding-left: 100px; // Space for vertical marquee on left
+    padding-right: 10px; // Small right padding
+    padding-bottom: 140px; // Add bottom padding to position closer to bio
+    position: fixed; // Fixed positioning to control distance from bio
+    bottom: 140px; // Position above bio text (which is at bottom: 0)
+    left: 0;
+    right: 0;
+    z-index: 6; // Above bio (z-index: 5) to ensure visibility
+    background: #fff !important; // Ensure white background
+    display: block !important; // Ensure header is visible
   }
   
   .header-logo .logo-symbol {
