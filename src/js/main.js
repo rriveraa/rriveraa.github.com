@@ -100,8 +100,8 @@ function initWebGLEffect(img) {
     
     // Initialize WebGL effect
     const effect = new WebGLHoverEffect(img, {
-      intensity: 0.6,
-      color: new THREE.Color(0x01FF89) // Green accent
+      intensity: 0.8, // Higher intensity for more colorful edges
+      color: new THREE.Color(0x01FF89) // Not used but kept for compatibility
     });
     
     // Store reference for cleanup if needed

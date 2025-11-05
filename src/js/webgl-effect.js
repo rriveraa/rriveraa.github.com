@@ -7,8 +7,8 @@ export class WebGLHoverEffect {
   constructor(img, options = {}) {
     this.img = img;
     this.options = {
-      intensity: 0.5,
-      color: new THREE.Color(0x01FF89), // Green accent color
+      intensity: 0.8,
+      color: new THREE.Color(0x01FF89), // Not used in new shader but kept for compatibility
       ...options
     };
     
@@ -72,19 +72,41 @@ export class WebGLHoverEffect {
           
           // Calculate distance from mouse
           float dist = distance(uv, uMouse);
+          float influence = (1.0 - dist) * uIntensity;
           
-          // Create distortion effect
-          vec2 distortion = (uv - uMouse) * uIntensity * (1.0 - dist) * 0.1;
-          uv += distortion;
+          // Create distortion effect - stronger near mouse
+          vec2 distortion = (uv - uMouse) * influence * 0.15;
           
-          // Sample texture with distortion
-          vec4 color = texture2D(uTexture, uv);
+          // Chromatic aberration - separate RGB channels for colorful edges
+          float aberrationAmount = influence * 0.008;
           
-          // Add colored overlay based on mouse position
-          float mixFactor = (1.0 - dist) * uIntensity * 0.3;
-          color.rgb = mix(color.rgb, uColor, mixFactor);
+          vec2 uvR = uv + distortion + vec2(aberrationAmount, 0.0);
+          vec2 uvG = uv + distortion;
+          vec2 uvB = uv + distortion - vec2(aberrationAmount, 0.0);
           
-          gl_FragColor = color;
+          // Sample each channel separately for colorful edge effect
+          float r = texture2D(uTexture, uvR).r;
+          float g = texture2D(uTexture, uvG).g;
+          float b = texture2D(uTexture, uvB).b;
+          
+          // Get original alpha
+          float a = texture2D(uTexture, uv).a;
+          
+          // Add colorful tint to edges based on distortion
+          vec3 edgeColor = vec3(
+            0.5 + 0.5 * sin(distortion.x * 20.0 + 0.0),
+            0.5 + 0.5 * sin(distortion.x * 20.0 + 2.094),
+            0.5 + 0.5 * sin(distortion.x * 20.0 + 4.189)
+          );
+          
+          // Mix original color with edge color based on distortion intensity
+          vec3 finalColor = mix(
+            vec3(r, g, b),
+            edgeColor,
+            influence * 0.4
+          );
+          
+          gl_FragColor = vec4(finalColor, a);
         }
       `
     });
