@@ -358,22 +358,22 @@ a:hover:after {
     &:focus {
       outline: none;
       background: none;
-      text-decoration: underline;
+      text-decoration: dotted;
       text-decoration-style: solid;
-      text-decoration-color: var(--color-accent);
+      text-decoration-color: var(--color-primary);
       text-decoration-thickness: 1px;
-      text-underline-offset: 4px;
+      text-underline-offset: 6px;
     }
     
     // Visited state - green underline instead of background
     &:visited {
       color: inherit;
       background: none;
-      text-decoration: underline;
+      text-decoration: dotted;
       text-decoration-style: solid;
-      text-decoration-color: var(--color-accent);
+      text-decoration-color: var(--color-primary);
       text-decoration-thickness: 1px;
-      text-underline-offset: 4px;
+      text-underline-offset: 6px;
     }
   }
 }
@@ -390,6 +390,17 @@ a:hover:after {
   background: var(--color-bg);
   overflow: hidden;
   z-index: 10;
+  
+  // Mobile: Vertical marquee on left side
+  @media only screen and (max-width: 768px) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 80px;
+    height: 100vh;
+    background: transparent;
+  }
 }
 
 .marquee {
@@ -398,6 +409,13 @@ a:hover:after {
   height: 100%;
   will-change: transform;
   // Animation is now handled by JavaScript for seamless looping
+  
+  // Mobile: Vertical layout
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .marquee-content {
@@ -410,6 +428,24 @@ a:hover:after {
   // Ensure equal spacing on both sides of photo
   .marquee-photo {
     margin: 0 40px; // Equal spacing on both sides (120px each side)
+  }
+  
+  // Mobile: Vertical layout
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    
+    .marquee-photo {
+      margin: 20px 0;
+    }
+    
+    .marquee-name {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
   }
 }
 

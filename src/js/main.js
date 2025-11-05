@@ -82,22 +82,29 @@ function initMarqueeLoop() {
   // Remove CSS animation
   marquee.style.animation = 'none';
   
-  // Get the width of one content block
+  // Get the width/height of one content block
   const firstContent = marquee.querySelector('.marquee-content');
   if (!firstContent) return;
   
-  // Wait for layout to be ready
-  const getContentWidth = () => {
-    return firstContent.offsetWidth || firstContent.getBoundingClientRect().width;
+  // Check if mobile
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+  
+  // Get content dimension based on orientation
+  const getContentDimension = () => {
+    if (isMobile()) {
+      return firstContent.offsetHeight || firstContent.getBoundingClientRect().height;
+    } else {
+      return firstContent.offsetWidth || firstContent.getBoundingClientRect().width;
+    }
   };
   
   const speed = 0.2; // pixels per frame (adjust for speed)
   let position = 0;
-  let contentWidth = getContentWidth();
+  let contentDimension = getContentDimension();
   
-  // Update width on resize
+  // Update dimension on resize
   window.addEventListener('resize', () => {
-    contentWidth = getContentWidth();
+    contentDimension = getContentDimension();
   });
   
   // Animation loop
@@ -105,17 +112,23 @@ function initMarqueeLoop() {
     // Move the marquee
     position -= speed;
     
-    // When we've scrolled one full content width, reset seamlessly
+    // When we've scrolled one full content dimension, reset seamlessly
     // Since we have 3 duplicates, when the first one is completely off-screen,
     // the second duplicate is in the exact same visual position
     // So we can reset to 0 without any visible jump
-    if (position <= -contentWidth) {
+    if (position <= -contentDimension) {
       // Reset to 0 - the next duplicate is already in the same position
       position = 0;
     }
     
-    // Apply transform
-    marquee.style.transform = `translateX(${position}px)`;
+    // Apply transform based on orientation
+    if (isMobile()) {
+      // Vertical scrolling on mobile
+      marquee.style.transform = `translateY(${position}px)`;
+    } else {
+      // Horizontal scrolling on desktop
+      marquee.style.transform = `translateX(${position}px)`;
+    }
     
     // Continue animation
     requestAnimationFrame(animate);
