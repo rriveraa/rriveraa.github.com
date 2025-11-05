@@ -349,6 +349,17 @@ a:hover:after {
     &:hover {
       color: var(--color-primary);
     }
+    
+    // Visited state - green underline instead of background
+    &:visited {
+      color: inherit;
+      background: none;
+      text-decoration: underline;
+      text-decoration-style: solid;
+      text-decoration-color: var(--color-accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
   }
 }
 
