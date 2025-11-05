@@ -84,19 +84,32 @@ function initMarqueeLoop() {
   const firstContent = marquee.querySelector('.marquee-content');
   if (!firstContent) return;
   
-  const contentWidth = firstContent.offsetWidth;
+  // Wait for layout to be ready
+  const getContentWidth = () => {
+    return firstContent.offsetWidth || firstContent.getBoundingClientRect().width;
+  };
+  
   const speed = 0.2; // pixels per frame (adjust for speed)
   let position = 0;
+  let contentWidth = getContentWidth();
+  
+  // Update width on resize
+  window.addEventListener('resize', () => {
+    contentWidth = getContentWidth();
+  });
   
   // Animation loop
   function animate() {
     // Move the marquee
     position -= speed;
     
-    // When we've moved one content width, reset to 0 (seamless)
-    // Since we have 3 duplicates, we reset at 1/3 of total width
+    // When we've scrolled one full content width, reset seamlessly
+    // Since we have 3 duplicates, we can reset at exactly one width
+    // The reset happens when the first duplicate is completely off-screen
     if (Math.abs(position) >= contentWidth) {
-      position = 0;
+      // Reset position without visible jump
+      // Subtract the content width to maintain visual continuity
+      position = position + contentWidth;
     }
     
     // Apply transform
