@@ -272,10 +272,11 @@ a:hover:after {
     margin-left: 0;
     margin-right: 0;
     position: fixed; // Fixed positioning to control distance from bio
-    bottom: 0; // Position at bottom
+    bottom: 140px; // Position above bio text (which is at bottom: 0)
     left: 0;
     right: 0;
     z-index: 4; // Below bio (z-index: 5) but above marquee
+    background: #fff !important; // Ensure white background
   }
 }
 
