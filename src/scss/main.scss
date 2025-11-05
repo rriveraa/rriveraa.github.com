@@ -240,6 +240,14 @@ a:hover:after {
 .top-header {
   background: var(--color-bg);
   padding: 40px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  
+  // Mobile: Reduce padding to prevent overflow
+  @media only screen and (max-width: 768px) {
+    padding: 30px 20px;
+    max-width: 100vw;
+  }
 }
 
 .header-container {
@@ -305,6 +313,17 @@ a:hover:after {
   background: var(--color-bg);
   padding: 60px 20px;
   padding-bottom: 280px; // Space for marquee
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; // Prevent horizontal overflow
+  
+  // Mobile: Add left padding for vertical marquee
+  @media only screen and (max-width: 768px) {
+    padding-left: 100px; // Space for vertical marquee on left
+    padding-bottom: 40px; // No need for bottom padding on mobile
+    padding-right: 20px; // Ensure right padding
+    max-width: 100vw; // Prevent overflow
+  }
 }
 
 .container {
@@ -552,8 +571,11 @@ a:hover:after {
   
   .main-content {
     padding: 40px 20px;
-    padding-left: 60px; // Space for vertical marquee on left
+    padding-left: 100px; // Space for vertical marquee on left
     padding-bottom: 40px; // No need for bottom padding on mobile
+    padding-right: 20px; // Ensure right padding
+    max-width: 100vw; // Prevent overflow
+    overflow-x: hidden; // Prevent horizontal scroll
   }
   
   .bio-text {
