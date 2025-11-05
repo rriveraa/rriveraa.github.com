@@ -333,9 +333,9 @@ a:hover:after {
     
     &.text-highlighted {
       text-decoration: underline;
-      text-decoration-style: dashed;
+      text-decoration-style: dotted;
       text-decoration-color: var(--color-primary);
-      text-decoration-thickness: 2px;
+      text-decoration-thickness: 1px;
       text-underline-offset: 6px;
     }
   }
@@ -532,7 +532,9 @@ a:hover:after {
   &.cursor-hover {
     width: 32px;
     height: 32px;
-    background: #01FF89 !important; // Green accent
+    background: #01ff887a !important; // Green accent
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
   }
 }
 
@@ -559,6 +561,8 @@ a:hover:after {
     border-color: #01FF89 !important; // Green accent
     border-width: 3px;
     opacity: 1 !important;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
   }
 }
 
